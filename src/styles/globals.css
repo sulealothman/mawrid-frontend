@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-noto-sans-arabic: "Noto Sans Arabic", "Noto Sans Arabic", "Noto Naskh Arabic", "DejaVu Sans", "KacstOne", sans-serif;
+  --font-nunito: "Nunito", "Cantarell", "Noto Sans", "Ubuntu", "DejaVu Sans", sans-serif;
+}
+
+@theme {
+  --font-noto-sans-arabic: "Noto Sans Arabic", "Noto Sans Arabic", "Noto Naskh Arabic", "DejaVu Sans", "KacstOne", sans-serif;
+  --font-nunito: "Nunito", "Cantarell", "Noto Sans", "Ubuntu", "DejaVu Sans", sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(163 163 163);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(115 115 115);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(82 82 82);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(115 115 115);
+}
+
+@layer utilities {
+  .text-primary {
+    @apply text-neutral-900 dark:text-neutral-100;
+  }
+
+  .text-secondary {
+    @apply text-neutral-500 dark:text-neutral-400;
+  }
+  .text-danger {
+    @apply text-red-600 dark:text-red-400;
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    @apply bg-white dark:bg-neutral-900;
+  }
+
+  .bg-secondary {
+    @apply bg-neutral-500 dark:bg-neutral-400;
+  }
+  .bg-danger {
+    @apply bg-red-600 dark:bg-red-400;
+  }
+}
+
+@layer utilities {
+  .font-mixed {
+    @apply rtl:font-noto-sans-arabic ltr:font-nunito;
+  }
+}
+
+
+@layer components {
+
+  .sidebar {
+    @apply fixed md:sticky z-50 top-0 min-h-screen shrink-0 p-0 duration-200
+    flex flex-col
+    ltr:shadow-[1px_0_20px_0_rgba(0,0,0,0.25)] rtl:shadow-[-1px_0_20px_0_rgba(0,0,0,0.25)]
+    border-e bg-neutral-200 border-neutral-300 text-neutral-900
+    dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-100;
+  }
+
+  .sidebar-collapse {
+    @apply max-md:bg-transparent max-md:border-none max-md:shadow-none;
+  }
+
+  .sidebar-header {
+    @apply p-4 pb-3 border-b border-neutral-800 text-neutral-950 dark:text-neutral-200;
+  }
+
+  .sidebar-item {
+    @apply text-base text-neutral-900 dark:text-neutral-100;
+  }
+
+}
+
+
+@layer components {
+
+  .icon-stroke {
+    @apply stroke-neutral-900 dark:stroke-neutral-100;
+  }
+
+  .icon-text {
+    @apply text-neutral-900 dark:text-neutral-100;
+  }
+
+  .icon-fill {
+    @apply fill-neutral-900 dark:fill-neutral-100;
+  }
+
+  .icon-fill-secondary {
+    @apply fill-neutral-100 dark:fill-neutral-400;
+  }
+
+}
+
+@layer components {
+  .dropdown-item {
+    @apply m-0 p-2 list-none block cursor-pointer rtl:font-noto-sans-arabic ltr:font-nunito hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg;
+  }
+}
+
+
+
+@layer components {
+  .label-form {
+    @apply text-sm font-medium rtl:font-noto-sans-arabic ltr:font-nunito text-neutral-900 dark:text-neutral-100;
+  }
+  .input-form {
+    @apply border-2 border-neutral-200 dark:border-neutral-600 rounded-xl p-2 font-noto-sans-arabic outline-none duration-150 focus:drop-shadow bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200;
+  }
+  .input-password-form {
+    @apply w-full px-3 py-2;
+  }
+  .phone-input-form {
+    @apply px-2 py-2 w-full focus-within:shadow;
+  }
+  .phone-input-form input {
+    @apply outline-none;
+  }
+
+  .input-textarea-form {
+    @apply border-2 border-neutral-200 dark:border-neutral-600 rounded-xl p-2 font-noto-sans-arabic outline-none duration-150 focus:drop-shadow bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 resize-none ;
+  }
+}

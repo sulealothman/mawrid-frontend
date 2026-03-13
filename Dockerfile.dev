@@ -1,0 +1,21 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+RUN apk add --no-cache libc6-compat
+
+COPY package.json package-lock.json* pnpm-lock.yaml* yarn.lock* ./
+
+RUN \
+  if [ -f yarn.lock ]; then yarn install; \
+  elif [ -f package-lock.json ]; then npm install; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable && pnpm install; \
+  else echo "No lockfile found. Please add a lockfile." && exit 1; \
+  fi
+
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+
+EXPOSE 3000
+
+CMD ["yarn", "dev"]

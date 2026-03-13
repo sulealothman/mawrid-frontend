@@ -1,0 +1,1 @@
+export const ALLOWED_FILE_TYPES = ['pdf', 'md', 'txt', 'json', 'jsonl', 'yml', 'yaml', 'csv'];

@@ -1,0 +1,19 @@
+services:
+  frontend:
+    container_name: mawrid-dev-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env.development
+    networks:
+      - mawrid_dev_net
+
+networks:
+  mawrid_dev_net:
+    external: true
