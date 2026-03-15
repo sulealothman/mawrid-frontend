@@ -1,9 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode, useRef, useEffect } from "react";
 import Sidebar from "@/features/sidebar/components/Sidebar";
 import { Toaster } from "react-hot-toast";
 import dynamic from "next/dynamic";
 import { UserStore } from "@/features/users/store/User";
 import useSidebar from "@/features/sidebar/hooks/useSidebar";
+import { AuthStore } from "@/features/authenticate/store/Auth";
+import useAuth from "@/features/authenticate/hooks/useAuth";
 const Theme = dynamic(() => import('@/features/theme/components/Theme'), { ssr: false });
 
 interface Props {
@@ -11,8 +13,20 @@ interface Props {
 }
 export default function Layout({ children }: Props) {
 
+  const lastAccessToken = useRef<string | null>(null);
+
+  const access_token = AuthStore(state => state.access_token);
+  const { existUserDataOrRetrieve } = useAuth();
   const user = UserStore((state) => state);
   const { isCollapse, handleClose } = useSidebar();
+
+  useEffect(() => {
+    if (access_token == null) return;
+    if (lastAccessToken.current === access_token && lastAccessToken.current !== '') return;
+    lastAccessToken.current = access_token;
+    existUserDataOrRetrieve();
+
+  }, [access_token, existUserDataOrRetrieve]);
 
   return (
     <>

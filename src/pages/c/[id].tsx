@@ -8,9 +8,12 @@ import Heads from '@/features/shared/template/Heads';
 import ChatView from '@/features/chat/views/ChatView';
 import ErrorView from '@/features/shared/views/ErrorView';
 import ChatLoadingView from '@/features/chat/views/ChatLoadingView';
+import useAuthMount from '@/features/authenticate/hooks/useAuthMount';
 
 
 export default function ChatPage() {
+    const { isMounted } = useAuthMount();
+
   const { kb_id } = KBStore();
   const router = useRouter();
   const { isReady, query } = router;
@@ -38,7 +41,7 @@ export default function ChatPage() {
 
   }, [isFetched, chat, setChatMessages]);
 
-  if (isLoading) {
+  if (isLoading || !isMounted) {
     return <ChatLoadingView />;
   }
 

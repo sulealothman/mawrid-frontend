@@ -24,7 +24,7 @@ export default function Home() {
     };
 
 
-    if (isLoading && isMounted) {
+    if (isLoading || !isMounted) {
         return (
             <KnowledgeBasesLoadingView />
         );

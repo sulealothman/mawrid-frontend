@@ -9,19 +9,28 @@ const useAuthMount = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        console.log("Setting up auth mount...", "Current access token:", AuthStore.getState().access_token);
-        const unsub = AuthStore.persist.onFinishHydration(() => {
-        const token = AuthStore.getState().access_token;
-        console.log("Auth hydration finished. Access token:", token);
-        if (token) {
-            setIsMounted(true);
-        } else {
-            redirectToAuthenticate(true);
-        }
-    });
+        if (isMounted) return;
+        const checkAuth = () => {
+            const token = AuthStore.getState().access_token;
 
-    return () => unsub();
-    }, [redirectToAuthenticate]);
+            if (token) {
+                setIsMounted(true);
+            } else {
+                redirectToAuthenticate(true);
+            }
+        };
+
+        if (AuthStore.persist.hasHydrated()) {
+            checkAuth();
+            return;
+        }
+
+        const unsub = AuthStore.persist.onFinishHydration(() => {
+            checkAuth();
+        });
+
+        return () => unsub();
+    }, [isMounted, redirectToAuthenticate]);
 
     return {
         isMounted,

@@ -103,11 +103,11 @@ const useAuth = () => {
     const existUserDataOrRetrieve = async () => {
         try {
             if(!user.access_token) {
-                UserController.getInfo();
+                await UserController.getInfo();
             }
         } catch (err: unknown) {
             if(isAxiosError(err) && err.response?.status === 401) {
-                logout(false);
+                await logout(false);
             }
             return null;
         }

@@ -6,8 +6,11 @@ import Layout from '@/features/shared/layout/DefaultLayout';
 import Heads from '@/features/shared/template/Heads';
 import KnowledgeBaseLoadingView from '@/features/knowledge-base/views/KnowledgeBaseLoadingView';
 import ErrorView from '@/features/shared/views/ErrorView';
+import useAuthMount from '@/features/authenticate/hooks/useAuthMount';
 
 export default function KnowledgeBaseDetailPage() {
+    const { isMounted } = useAuthMount();
+
     const router = useRouter();
     const { isReady, query } = router;
     const { id } = query;
@@ -21,7 +24,7 @@ export default function KnowledgeBaseDetailPage() {
     } = useKnowledgeBaseFetch(kbId, isReady);
 
 
-    if (kbLoading) {
+    if (kbLoading || !isMounted) {
         return (
             <KnowledgeBaseLoadingView />
         );

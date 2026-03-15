@@ -15,9 +15,7 @@ const useRedirect = () => {
 
     const redirectToAuthenticate = (withCheck?: boolean) => {
         if (withCheck) {
-            console.log("Checking for access token before redirecting to authenticate...", access_token);
             if (!access_token) {
-                console.log("No access token found, redirecting to authenticate...");
                 redirectTo("/authenticate");
             }
             return;

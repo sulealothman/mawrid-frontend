@@ -1,12 +1,10 @@
 import "@/styles/globals.css";
 import { useI18n } from '@/features/localization/hooks/useI18n';
 import { initializeLanguage } from '@/features/localization/config/config';
-import { ReactElement, ReactNode, useEffect, useRef } from 'react';
+import { ReactElement, ReactNode, useEffect } from 'react';
 import type { AppProps } from "next/app";
 import { NextPage } from "next";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { AuthStore } from "@/features/authenticate/store/Auth";
-import useAuth from "@/features/authenticate/hooks/useAuth";
 import { queryClient } from "@/features/shared/cache/useCache";
 
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
@@ -21,9 +19,6 @@ type AppPropsWithLayout = AppProps & {
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const { t, language } = useI18n();
-  const lastAccessToken = useRef<string | null>(null);
-  const access_token = AuthStore(state => state.access_token);
-  const { existUserDataOrRetrieve } = useAuth();
 
   useEffect(() => {
     initializeLanguage();
@@ -38,15 +33,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       }
     }
   }, [language, t]);
-
-  useEffect(() => {
-    if (!access_token) return;
-    if (lastAccessToken.current === access_token) return;
-
-    lastAccessToken.current = access_token;
-    existUserDataOrRetrieve();
-
-  }, [access_token, existUserDataOrRetrieve]);
 
   return (
     <QueryClientProvider client={queryClient}>

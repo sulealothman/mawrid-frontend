@@ -18,7 +18,7 @@ export default function Home() {
 
   const { isMounted } = useAuthMount();
 
-  if (isMounted) return (<BlankLoading />);
+  if (!isMounted) return (<BlankLoading />);
 
 
   return (

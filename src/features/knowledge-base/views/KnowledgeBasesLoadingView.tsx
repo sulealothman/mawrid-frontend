@@ -10,9 +10,9 @@ export default function KnowledgeBasesLoadingView() {
                         <h1 className="text-3xl font-bold text-primary mb-2">
                             <ShimmerLine className="w-48" />
                         </h1>
-                        <p className="text-secondary">
+                        <div className="text-secondary">
                             <ShimmerLine className="w-64" />
-                        </p>
+                        </div>
                     </div>
 
                     <ShimmerLine className="w-32 h-10" />

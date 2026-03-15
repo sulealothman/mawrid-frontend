@@ -24,7 +24,7 @@ export default function Index() {
     };
 
 
-    if (isLoading && isMounted) {
+    if (isLoading || !isMounted) {
         return (
             <KnowledgeBasesLoadingView />
         );
