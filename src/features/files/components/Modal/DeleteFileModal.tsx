@@ -26,7 +26,7 @@ export default function DeleteFileModal({
             size='lg'
         >
             <div className="space-y-6">
-                <p>
+                <p className='text-primary'>
                     {t('delete_file_confirmation')}
                 </p>
 
