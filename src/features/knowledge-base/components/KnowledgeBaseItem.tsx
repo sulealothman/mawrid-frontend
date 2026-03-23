@@ -1,4 +1,5 @@
 import { useI18n } from '@/features/localization/hooks/useI18n';
+import { getCountLabel } from '@/features/localization/utils/countLabel';
 import { DeleteIcon, EditIcon } from '@/features/shared/icons/CommonIcons';
 
 interface KnowledgeBaseItemProps {
@@ -35,7 +36,7 @@ export default function KnowledgeBaseItem({
                     )}
                     <div className="flex items-center gap-4 text-xs text-secondary">
                         <span>
-                            {kb.files_count || 0} {t('files')}
+                            {getCountLabel(t, 'files', kb.files_count || 0)}
                         </span>
                         <span>
                             {t('created')} {new Date(kb.created_at).toLocaleDateString()}

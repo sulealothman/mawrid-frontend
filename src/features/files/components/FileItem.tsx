@@ -1,6 +1,6 @@
 import { useI18n } from '@/features/localization/hooks/useI18n';
+import Badge from '@/features/shared/components/Badge/Badge';
 import { DeleteIcon, EditIcon } from '@/features/shared/icons/CommonIcons';
-import React from 'react'
 
 interface FileItemProps {
     file: KnowledgeBaseFile;
@@ -24,9 +24,18 @@ export default function FileItem({
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3 flex-1 min-w-0">
                     <div className="flex-1 min-w-0">
-                        <h4 className="text-sm font-medium text-primary truncate font-noto-sans-arabic">
-                            {file.name}
-                        </h4>
+                        <div className='flex items-center gap-3'>
+                            <h4 className="text-sm font-medium text-primary truncate font-noto-sans-arabic">
+                                {file.name}
+                            </h4>
+                            {file.status === 'failed' && <Badge text={t('processing_failed')} variant='danger' size='sm' />}
+                            {file.status !== 'failed' && file.status !== 'processed' && (
+                                <div className='bg-amber-500 w-2 h-2 rounded-full flex items-center justify-center'>
+                                    <div className='bg-amber-500 w-3 h-3 rounded-full animate-ping shrink-0'></div>
+                                </div>
+                            )}
+                        </div>
+
                         <div className="flex items-center gap-3 text-xs text-secondary mt-1">
                             <span>
                                 {t('created')} {new Date(file.created_at).toLocaleDateString()}

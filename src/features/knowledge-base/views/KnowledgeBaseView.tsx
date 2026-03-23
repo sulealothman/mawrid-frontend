@@ -7,8 +7,8 @@ import ChatsList from '@/features/chat/components/ChatsList';
 import { ChatIcon, FileIcon } from '../icons/KnowledgeBaseIcon';
 import DefaultNavbar from '@/features/navbar/components/DefaultNavbar';
 import StickyManagementContainer from '@/features/sticky-management/containers/StickyManagementContainer';
-import SmallBadge from '@/features/shared/components/Badge/SmallBadge';
 import ChatsEmpty from '@/features/chat/components/ChatsEmpty';
+import Badge from '@/features/shared/components/Badge/Badge';
 
 interface KnowledgeBaseViewProps {
     kb: KnowledgeBase;
@@ -42,15 +42,15 @@ export default function KnowledgeBaseView({
                         <Tab>
                             <div className='flex items-center gap-2 capitalize text-primary'>
                                 <FileIcon className="size-4 icon-stroke" viewBox='0 0 24 24' />
-                                {t('files')}
-                                {kb?.files && kb.files.length > 0 && <SmallBadge text={`${kb.files.length}`} />}
+                                {t('the_files')}
+                                {kb?.files && kb.files.length > 0 && <Badge text={`${kb.files.length}`} shape='numeric' />}
                             </div>
                         </Tab>
                         <Tab>
                             <div className='flex items-center gap-2 capitalize text-primary'>
                                 <ChatIcon className="size-4 icon-stroke" viewBox='0 0 24 24' />
                                 {t('chats')}
-                                {kb?.chats && kb.chats.length > 0 && <SmallBadge text={`${kb.chats.length}`} />}
+                                {kb?.chats && kb.chats.length > 0 && <Badge text={`${kb.chats.length}`} shape='numeric' />}
                             </div>
                         </Tab>
                     </TabList>
