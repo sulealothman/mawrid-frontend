@@ -11,7 +11,7 @@ export const MessageTimestamp = ({ createdAt, alignRight }: Props) => {
 
   return (
     <div
-      className={`font-mixed mt-2 px-2 text-xs text-neutral-500 dark:text-neutral-400 ${
+      className={`font-mixed text-xs text-neutral-500 dark:text-neutral-400 ${
         alignRight ? "text-right" : ""
       }`}
     >

@@ -2,10 +2,14 @@ import React from 'react'
 import { MessageAvatar } from './MessageAvatar'
 import { MessageTimestamp } from './MessageTimestamp'
 import { MarkdownRenderer } from './MarkdownRenderer';
+import CopyMessage from './CopyMessage';
+
 interface MessageUserProps {
   message: ChatMessage;
 }
+
 export default function MessageUser({ message }: MessageUserProps) {
+  const refContent = React.useRef<HTMLDivElement>(null);
   return (
     <div
       className="group w-full"
@@ -17,6 +21,7 @@ export default function MessageUser({ message }: MessageUserProps) {
 
             <div
               className={`rounded-2xl px-4 py-2 bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white`}
+              ref={refContent}
             >
               <MarkdownRenderer
                 content={message.content}
@@ -24,13 +29,15 @@ export default function MessageUser({ message }: MessageUserProps) {
               />
             </div>
 
-            <MessageTimestamp
-              createdAt={message.created_at}
-              alignRight={true}
-            />
+            <div className='flex rtl:flex-row-reverse gap-2 items-center py-1 justify-end'>
+              <MessageTimestamp
+                createdAt={message.created_at}
+                alignRight={true}
+              />
+              <CopyMessage contentRef={refContent} />
+
+            </div>
           </div>
-
-
         </div>
       </div>
     </div>
