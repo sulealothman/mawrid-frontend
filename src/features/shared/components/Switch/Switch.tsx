@@ -47,7 +47,7 @@ const Switch: FC<Props> = React.forwardRef<HTMLLabelElement, Props>(({
                 </div>
 
                 <div 
-                className={`peer-checked:translate-x-[calc(100%+4px)]
+                className={`peer-checked:translate-x-[calc(100%+4px)] rtl:peer-checked:translate-x-[calc(-100%-4px)]
                 absolute ltr:left-0.5 rtl:right-0.5 top-1/2 -translate-y-1/2
                 bg-white w-4 h-4 rounded-full transition ${circleClassName ? circleClassName : ''}`}>
                 </div>
