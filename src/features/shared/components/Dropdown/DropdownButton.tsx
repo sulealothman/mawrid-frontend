@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { useDropdown } from "./Dropdown";
+import { cn } from "../../utils/utils";
 
 interface DropdownButtonProps {
   children: ReactNode;
@@ -14,11 +15,11 @@ export function DropdownButton({ children, className = '' }: DropdownButtonProps
     <button
       ref={triggerRef}
       onMouseDown={(e) => e.stopPropagation()}
-  onClick={(e) => {
-    e.stopPropagation();
-    setOpen(!open);
-  }}
-      className={`w-full cursor-pointer ${className}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        setOpen(!open);
+      }}
+      className={cn("w-full cursor-pointer", className)}
     >
       {children}
     </button>

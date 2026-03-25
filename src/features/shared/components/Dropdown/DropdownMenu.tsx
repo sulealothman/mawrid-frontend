@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { useDropdown } from "./Dropdown";
+import { cn } from "../../utils/utils";
 
 type Placement =
   | "bottom"
@@ -57,20 +58,17 @@ const getPlacement = () => {
   };
   return (
     <div
-      className={`
+      className={cn(`
         absolute
         ${getPlacement()}
         w-48
         rounded-lg
-        bg-neutral-200
-        dark:bg-neutral-800
-        border border-neutral-300/50
-        dark:border-neutral-700/50
+        bg-secondary
+        border border-tertiary
         shadow-lg
         p-1
         z-100
-        ${className}
-      `}
+      `, className)}
     >
       {children}
     </div>

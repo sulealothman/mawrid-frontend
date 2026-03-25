@@ -12,6 +12,7 @@ import {
 import { DropdownButton } from "./DropdownButton";
 import { DropdownMenu } from "./DropdownMenu";
 import { DropdownItem } from "./DropdownItem";
+import { cn } from "../../utils/utils";
 
 type DropdownContextType = {
   open: boolean;
@@ -62,7 +63,7 @@ function DropdownRoot({ children, className = "" }: DropdownProps) {
     <DropdownContext.Provider value={{ open, setOpen, triggerRef }}>
       <div
         ref={dropdownRef}
-        className={`relative inline-block w-full ${className}`}
+        className={cn("relative inline-block w-full", className)}
       >
         {children}
       </div>

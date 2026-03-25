@@ -7,12 +7,12 @@ interface Props {
 }
 export default function Layout({ children }: Props) {
   return (
-    <>
+    <div className="h-screen overflow-hidden bg-grandient flex flex-col duration-300">
       <LightNavbar />
       <Toaster position="top-center" />
-      <main className="flex flex-row relative w-full h-[calc(100vh-80px)] bg-white dark:bg-neutral-950 duration-300">
+      <main className="flex flex-row relative w-full h-full duration-300">
         {children}
       </main>
-    </>
+    </div>
   );
 }

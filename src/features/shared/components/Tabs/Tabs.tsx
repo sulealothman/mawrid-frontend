@@ -118,7 +118,7 @@ export function Tab({
       aria-selected={isActive}
       tabIndex={isActive ? 0 : -1}
       onClick={() => setActiveIndex(index ?? 0)}
-      className={`px-4 py-2 border-b-2 cursor-pointer disabled:cursor-default ${isActive ? "border-neutral-300 dark:border-neutral-700 font-bold" : "border-transparent font-normal"} focus:outline-none`}
+      className={`px-4 py-2 border-b-2 cursor-pointer disabled:cursor-default ${isActive ? "border-tertiary font-bold" : "border-transparent font-normal"} focus:outline-none`}
     >
       {children}
     </button>
@@ -130,7 +130,7 @@ export function TabPanels({ children }: { children: ReactNode }) {
   const panels = Children.toArray(children);
 
   return (
-    <div style={{ marginTop: "20px" }}>
+    <div className="mt-5">
       {panels.map((panel, index) =>
         index === activeIndex ? (
           <div key={index} role="tabpanel">

@@ -32,7 +32,7 @@ export default function Layout({ children }: Props) {
     <>
        <Toaster position="top-center" />
        <Theme />
-        <div className="font-sans h-screen overflow-hidden bg-gray-100 dark:bg-neutral-800 flex duration-300">
+        <div className="font-sans h-screen overflow-hidden bg-grandient flex duration-300">
 
         {user.access_token && (
           <>

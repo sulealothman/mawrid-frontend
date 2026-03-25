@@ -40,6 +40,13 @@
   }
 }
 
+@utility bg-muted {
+  @apply bg-light-800 disabled:bg-light-800/70;
+   @variant dark {
+    @apply bg-midnight-400 disabled:bg-midnight-400/70;
+  }
+}
+
 @utility bg-danger {
   @apply bg-red-300 disabled:bg-red-300/70;
    @variant dark {

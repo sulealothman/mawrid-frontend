@@ -1,7 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from '@/features/shared/utils/utils';
 
-export const headingVariants = cva("rtl:font-noto-sans ltr:font-nunito text-sm dark:text-neutral-100 font-normal", {
+export const headingVariants = cva("font-mixed font-normal", {
     variants: {
         size: {
             sm: "text-sm",
@@ -10,17 +10,12 @@ export const headingVariants = cva("rtl:font-noto-sans ltr:font-nunito text-sm d
             lg: "text-lg",
         },
         color: {
-            default: "text-gray-900 dark:text-neutral-100",
-            primary: "text-blue-600 dark:text-neutral-100",
-            secondary: "text-green-600 dark:text-neutral-100",
-            success: "text-green-600 dark:text-neutral-100",
-            warning: "text-yellow-600 dark:text-neutral-100",
-            danger: "text-red-600 dark:text-neutral-100",
-        },
-        fontFamily: {
-            nunito: "ltr:font-nunito rtl:font-noto-sans",
-            roboto: "ltr:font-roboto rtl:font-noto-sans",
-            noto: "font-noto-sans",
+            primary: "text-primary",
+            secondary: "text-secondary",
+            tertiary: "text-tertiary",
+            success: "text-success",
+            warning: "text-yellow-600",
+            danger: "text-danger",
         },
         weight: {
             normal: "font-normal",
@@ -30,9 +25,8 @@ export const headingVariants = cva("rtl:font-noto-sans ltr:font-nunito text-sm d
     },
     defaultVariants: {
         size: "base",
-        color: "default",
+        color: "tertiary",
         weight: "normal",
-        fontFamily: "nunito",
     },
 });
 
@@ -40,9 +34,8 @@ interface SubTitleProps extends VariantProps<typeof headingVariants> {
     text?: string;
     className?: string;
     size?: "sm" | "md" | "base" | "lg";
-    color?: "default" | "primary" | "secondary" | "success" | "warning" | "danger";
+    color?: "primary" | "secondary" | "tertiary" | "success" | "warning" | "danger";
     weight?: "normal" | "semibold" | "bold";
-    fontFamily?: "nunito" | "roboto" | "noto";
 }
 
 
@@ -52,12 +45,11 @@ const SubTitle: React.FC<SubTitleProps> = ({
     color,
     weight,
     size,
-    fontFamily,
     ...props
 }) => {
     return (
         <div
-            className={cn(headingVariants({ size, color, weight, fontFamily }), className)}
+            className={cn(headingVariants({ size, color, weight }), className)}
             {...props}
         >
             {text && text}

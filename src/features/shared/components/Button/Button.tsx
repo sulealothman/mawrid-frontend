@@ -3,27 +3,32 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/features/shared/utils/utils';
 
 const buttonStyles = cva(
-    "p-2 font-mixed cursor-pointer disabled:cursor-default outline-none duration-150 focus:drop-shadow",
+    "p-2 font-mixed font-semibold cursor-pointer disabled:cursor-default outline-none duration-150",
     {
         variants: {
             variant: {
-                default: "bg-black disabled:bg-black/70 text-white rounded-lg",
-                secondary: "bg-neutral-100 dark:bg-neutral-700 disabled:bg-white/70 text-black rounded-lg border border-neutral-400/50",
-                
-                danger: "bg-red-600 disabled:bg-red-600/70 text-white rounded-lg",
-                outlined: "border-2 border-blue-500 rounded-lg",
-                filled: "bg-gray-100 border-none rounded-lg",
-                noStyle: "p-0 bg-transparent outline-none font-mixed",
+                default: "bg-midnight-950 disabled:bg-midnight-900/70 text-light-50 shadow-midnight-900",
+                primary: "bg-primary text-primary shadow-sm shadow-light-400 dark:shadow-midnight-600",
+                secondary: "bg-secondary text-secondary shadow-sm shadow-light-400 dark:shadow-midnight-600",
+                tertiary: "bg-quaternary text-quaternary shadow-sm shadow-light-400 dark:shadow-midnight-300",
+                accent: "bg-accent",
+                danger: "bg-red-600 disabled:bg-red-600/70 text-white",
+                noStyle: "",
             },
             size: {
                 small: "text-sm py-1 px-2",
                 medium: "text-base py-2 px-3",
                 large: "text-lg py-3 px-4",
             },
+            shape: {
+                rounded: "rounded-lg",
+                circle: "rounded-full",
+            },
         },
         defaultVariants: {
             variant: "default",
             size: "medium",
+            shape: "rounded",
         },
     }
 );
@@ -38,6 +43,7 @@ const Button: React.FC<ButtonProps> = ({
     onClick,
     variant,
     size,
+    shape,
     isLoading,
     id,
     className,
@@ -47,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({
         <button
             id={id}
             data-testid={`${id}-button`}
-            className={cn(buttonStyles({ variant, size }), className)}
+            className={cn(buttonStyles({ variant, size, shape }), className)}
             onClick={onClick}
             disabled={isLoading}
             {...props}

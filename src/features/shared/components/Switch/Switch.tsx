@@ -1,7 +1,7 @@
 import React from 'react'
 import { FC, InputHTMLAttributes, ReactNode } from "react";
 
-const defaultClasses = "flex justify-between items-center bg-gray-600 peer-checked:bg-red-400 duration-200 w-10 h-5 rounded-full px-0.5"
+const defaultClasses = "flex justify-between items-center bg-midnight-100 peer-checked:bg-red-400 duration-200 w-10 h-5 rounded-full px-0.5"
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
     label?: string,
@@ -23,7 +23,7 @@ const Switch: FC<Props> = React.forwardRef<HTMLLabelElement, Props>(({
     return (
         <label ref={ref} htmlFor={id ? id : 'default-switch'} className="flex gap-2 items-center cursor-pointer">
             {label ? (
-                <div className={`text-gray-700 font-medium ${labelClass ? labelClass : ''}`}>
+                <div className={`text-primary font-medium ${labelClass ? labelClass : ''}`}>
                     {label}
                 </div>
             ) : ''}
@@ -49,7 +49,7 @@ const Switch: FC<Props> = React.forwardRef<HTMLLabelElement, Props>(({
                 <div 
                 className={`peer-checked:translate-x-[calc(100%+4px)] rtl:peer-checked:translate-x-[calc(-100%-4px)]
                 absolute ltr:left-0.5 rtl:right-0.5 top-1/2 -translate-y-1/2
-                bg-white w-4 h-4 rounded-full transition ${circleClassName ? circleClassName : ''}`}>
+                bg-light-100 w-4 h-4 rounded-full transition ${circleClassName ? circleClassName : ''}`}>
                 </div>
             </div>
         </label>

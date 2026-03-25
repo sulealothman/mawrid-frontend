@@ -54,7 +54,7 @@ export default function Sidebar() {
             isActive={pathname === "/home"}
           />
         </div>
-        <Divider className='border-secondary mx-2' />
+        <Divider className='mx-2' />
 
         {!isCollapse && kbs && kbs.data.length > 0 && (
           <>
@@ -65,7 +65,7 @@ export default function Sidebar() {
             />
           </>
         )}
-        <Divider className='border-secondary mx-2 mb-0' />
+        <Divider className='mx-2 mb-0' />
 
         <div className="mt-auto">
           <UserDropdown isCollapse={isCollapse} />

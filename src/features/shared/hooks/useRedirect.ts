@@ -7,7 +7,7 @@ const useRedirect = () => {
 
     const access_token = AuthStore(state => state.access_token);
     const router = useRouter();
-    const { query, isReady } = router;
+    const { query, isReady, pathname } = router;
 
     const redirectTo = (url: Url, as?: Url, options?: Parameters<typeof router.push>[2]) => {
         router.push(url, as, options);
@@ -100,6 +100,7 @@ const useRedirect = () => {
     return {
         query,
         isReady,
+        pathname,
         redirectTo,
         redirectToIndex,
         redirectToAuthenticate,

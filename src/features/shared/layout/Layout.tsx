@@ -11,7 +11,7 @@ export default function Layout({ children }: Props) {
         <>
             <Theme />
             <Toaster position="top-center" />
-            <main className="flex flex-row relative w-full h-screen dark:bg-neutral-950 duration-300">
+            <main className="flex flex-row relative w-full h-screen bg-grandient duration-300">
                 {children}
             </main>
         </>

@@ -69,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({
                     onClick={handleBackdropClick}
                 >
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={showCloseButton ? onClose : undefined} />
-                    
+
                     <motion.div
                         initial={{ scale: 0.95, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
@@ -77,32 +77,31 @@ const Modal: React.FC<ModalProps> = ({
                         transition={{ duration: 0.2 }}
                         className={`
                             relative w-full ${sizeClasses[size]} max-h-[90vh] overflow-hidden
-                            bg-white
-                            dark:bg-neutral-800 border border-neutral-700 rounded-xl shadow-2xl
+                            bg-accent border border-secondary rounded-xl shadow-2xl
                             ${className}
                         `}
                     >
                         {(title || showCloseButton) && (
-                            <div className="flex items-center justify-between p-6 border-b border-neutral-200 dark:border-neutral-700">
+                            <div className="flex items-center justify-between p-6 border-b border-secondary">
                                 {title && (
                                     <h2 className="text-lg font-semibold text-primary">
                                         {title}
                                     </h2>
                                 )}
-                                
+
                                 {showCloseButton && (
                                     <Button
                                         variant='noStyle'
                                         onClick={onClose}
-                                        className="p-2 transition-colors rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                                        className="p-2 transition-colors rounded-lg hover:bg-tertiary"
                                         aria-label="Close modal"
                                     >
-                                    <CloseIcon className="w-4 h-4 icon-stroke" viewBox='0 0 24 24' />
+                                        <CloseIcon className="w-4 h-4 stroke-primary" strokeClassName='stroke-2' viewBox='0 0 24 24' />
                                     </Button>
                                 )}
                             </div>
                         )}
-                        
+
                         <div className={`overflow-y-auto h-full max-h-[calc(100%-90px)]`}>
                             <div className="p-6 h-full">
                                 {children}

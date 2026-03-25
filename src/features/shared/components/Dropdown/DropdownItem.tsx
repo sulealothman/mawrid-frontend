@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { useDropdown } from "./Dropdown";
+import { cn } from "../../utils/utils";
 
 interface DropdownItemProps {
   children: ReactNode;
@@ -22,22 +23,7 @@ export function DropdownItem({
   return (
     <button
       onClick={handleClick}
-      className={`
-        w-full
-        text-left
-        px-2
-        py-2
-        rounded-md
-        text-sm
-        transition
-        flex
-        items-center
-        gap-2
-        cursor-pointer
-        font-mixed
-        text-primary
-        ${className}
-      `}
+      className={cn('w-full text-start px-2 py-2 rounded-md text-sm transition flex items-center gap-2 cursor-pointer font-mixed text-primary', className)}
     >
       {children}
     </button>
