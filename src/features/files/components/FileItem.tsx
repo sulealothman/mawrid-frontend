@@ -1,5 +1,6 @@
 import { useI18n } from '@/features/localization/hooks/useI18n';
 import Badge from '@/features/shared/components/Badge/Badge';
+import Button from '@/features/shared/components/Button/Button';
 import { DeleteIcon, EditIcon } from '@/features/shared/icons/CommonIcons';
 
 interface FileItemProps {
@@ -19,7 +20,7 @@ export default function FileItem({
     return (
         <div
             key={file.id}
-            className="bg-neutral-100 dark:bg-neutral-900 shadow-md border border-neutral-300/50 dark:border-neutral-700/50 rounded-lg p-4 transition-colors cursor-pointer"
+            className="bg-accent shadow-md border border-secondary rounded-lg p-4 transition-colors cursor-pointer"
         >
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3 flex-1 min-w-0">
@@ -36,7 +37,7 @@ export default function FileItem({
                             )}
                         </div>
 
-                        <div className="flex items-center gap-3 text-xs text-secondary mt-1">
+                        <div className="flex items-center gap-3 text-xs text-tertiary mt-1">
                             <span>
                                 {t('created')} {new Date(file.created_at).toLocaleDateString()}
                             </span>
@@ -45,7 +46,7 @@ export default function FileItem({
                 </div>
 
                 <div className="flex gap-2">
-                    <button
+                    <Button
                         onClick={(e) => {
                             e.stopPropagation();
                             setSelectedFile(file);
@@ -53,11 +54,12 @@ export default function FileItem({
                         }}
                         className="p-2"
                         title={t('edit')}
+                        variant="noStyle"
                     >
-                        <EditIcon className="w-4 h-4 icon-stroke hover:dark:stroke-neutral-400 cursor-pointer duration-200" viewBox='0 0 24 24' />
-                    </button>
+                        <EditIcon className="w-4 h-4 stroke-primary hover:dark:stroke-secondary cursor-pointer duration-200" viewBox='0 0 24 24' />
+                    </Button>
 
-                    <button
+                    <Button
                         onClick={(e) => {
                             e.stopPropagation();
                             setSelectedFile(file);
@@ -65,9 +67,10 @@ export default function FileItem({
                         }}
                         className="p-2"
                         title={t('delete')}
+                        variant="noStyle"
                     >
-                        <DeleteIcon className="w-4 h-4 icon-stroke hover:stroke-red-400 cursor-pointer duration-200" viewBox='0 0 24 24' />
-                    </button>
+                        <DeleteIcon className="w-4 h-4 stroke-primary hover:stroke-danger cursor-pointer duration-200" viewBox='0 0 24 24' />
+                    </Button>
                 </div>
             </div>
         </div>

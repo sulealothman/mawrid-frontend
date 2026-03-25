@@ -26,7 +26,7 @@ export default function DeleteFileModal({
             size='lg'
         >
             <div className="space-y-6">
-                <p className='text-primary'>
+                <p className='text-secondary'>
                     {t('delete_file_confirmation')}
                 </p>
 
@@ -43,6 +43,8 @@ export default function DeleteFileModal({
 
                     <Button
                         onClick={closeDeleteFileModal}
+                        variant='tertiary'
+                        className='shadow-none'
                     >
                         {t('cancel')}
                     </Button>

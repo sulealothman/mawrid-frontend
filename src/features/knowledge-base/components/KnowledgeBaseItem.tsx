@@ -1,5 +1,6 @@
 import { useI18n } from '@/features/localization/hooks/useI18n';
 import { getCountLabel } from '@/features/localization/utils/countLabel';
+import Button from '@/features/shared/components/Button/Button';
 import { DeleteIcon, EditIcon } from '@/features/shared/icons/CommonIcons';
 
 interface KnowledgeBaseItemProps {
@@ -21,7 +22,7 @@ export default function KnowledgeBaseItem({
     return (
         <div
             key={kb.id}
-            className="bg-neutral-100 dark:bg-neutral-900 shadow-md border border-neutral-300/50 dark:border-neutral-700/50 rounded-lg p-2 md:p-4 transition-colors cursor-pointer"
+            className="bg-accent shadow-md border border-secondary rounded-lg p-2 md:p-4 transition-colors cursor-pointer"
             onClick={() => onSelect(kb)}
         >
             <div className="flex justify-between items-start">
@@ -45,7 +46,7 @@ export default function KnowledgeBaseItem({
                 </div>
 
                 <div className="flex gap-2">
-                    <button
+                    <Button
                         onClick={(e) => {
                             e.stopPropagation();
                             setSelectedKb(kb);
@@ -53,21 +54,23 @@ export default function KnowledgeBaseItem({
                         }}
                         className="p-2"
                         title={t('edit')}
+                        variant="noStyle"
                     >
-                        <EditIcon className="w-4 h-4 icon-stroke hover:dark:stroke-neutral-400 cursor-pointer duration-200" viewBox='0 0 24 24' />
-                    </button>
+                        <EditIcon className="w-4 h-4 stroke-primary hover:stroke-secondary cursor-pointer duration-200" viewBox='0 0 24 24' />
+                    </Button>
 
-                    <button
+                    <Button
                         onClick={(e) => {
                             e.stopPropagation();
                             setSelectedKb(kb);
                             setShowDeleteKbModal(true);
                         }}
-                        className="p-2 text-neutral-400 hover:text-red-400 transition-colors"
+                        className="p-2"
                         title={t('delete')}
+                        variant="noStyle"
                     >
-                        <DeleteIcon className="w-4 h-4 icon-stroke hover:stroke-red-400 cursor-pointer duration-200" viewBox='0 0 24 24' />
-                    </button>
+                        <DeleteIcon className="w-4 h-4 stroke-primary hover:stroke-danger cursor-pointer duration-200" viewBox='0 0 24 24' />
+                    </Button>
                 </div>
             </div>
         </div>

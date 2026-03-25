@@ -33,9 +33,10 @@ const UploadFileInput: React.FC<UploadFileInputProps> = ({
                 onClick={onClick}
                 disabled={isUploading}
                 variant='secondary'
-                className='rounded-full size-10 md:size-12 flex items-center justify-center'
+                shape='circle'
+                className='size-10 md:size-12 flex items-center justify-center'
             >
-                <UploadFileIcon className="size-4 md:size-6 icon-stroke" viewBox='0 0 24 24' />
+                <UploadFileIcon className="size-4 md:size-6 stroke-primary" viewBox='0 0 24 24' />
             </Button>
             <input
                 ref={fileInputRef}

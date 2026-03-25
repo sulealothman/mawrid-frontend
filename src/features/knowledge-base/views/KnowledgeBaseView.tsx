@@ -41,14 +41,14 @@ export default function KnowledgeBaseView({
                     <TabList className='px-2'>
                         <Tab>
                             <div className='flex items-center gap-2 capitalize text-primary'>
-                                <FileIcon className="size-4 icon-stroke" viewBox='0 0 24 24' />
+                                <FileIcon className="size-4 stroke-primary" viewBox='0 0 24 24' />
                                 {t('the_files')}
                                 {kb?.files && kb.files.length > 0 && <Badge text={`${kb.files.length}`} shape='numeric' />}
                             </div>
                         </Tab>
                         <Tab>
                             <div className='flex items-center gap-2 capitalize text-primary'>
-                                <ChatIcon className="size-4 icon-stroke" viewBox='0 0 24 24' />
+                                <ChatIcon className="size-4 stroke-primary" viewBox='0 0 24 24' />
                                 {t('chats')}
                                 {kb?.chats && kb.chats.length > 0 && <Badge text={`${kb.chats.length}`} shape='numeric' />}
                             </div>

@@ -56,7 +56,7 @@ const CreateFileForm: React.FC<CreateFileFormProps> = ({
                 {errors.length > 0 && (
                     <div className="space-y-1">
                         {errors.map((error, index) => (
-                            <p key={index} className="text-red-400 text-sm">
+                            <p key={index} className="text-danger text-sm">
                                 {error}
                             </p>
                         ))}
@@ -77,7 +77,8 @@ const CreateFileForm: React.FC<CreateFileFormProps> = ({
                     <Button
                         onClick={onCancel}
                         disabled={isSubmitting}
-                        variant='secondary'
+                        variant='tertiary'
+                        className='shadow-none'
                     >
                         {t('cancel')}
                     </Button>

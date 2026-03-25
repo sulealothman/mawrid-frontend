@@ -3,7 +3,7 @@ import ShimmerLine from "@/features/shared/components/shimmer/ShimmerLine";
 const KnowledgeBaseSkeleton = () => {
   return (
     <div
-      className="bg-neutral-100 dark:bg-neutral-900 shadow-md border border-neutral-300/50 dark:border-neutral-700/50 rounded-lg p-4 transition-colors cursor-pointer"
+      className="bg-accent shadow-md border border-secondary rounded-lg p-4 transition-colors cursor-pointer"
     >
       <div className="rounded-lg">
         <ShimmerLine  className="w-1/3" />

@@ -74,7 +74,7 @@ const useUploadActions = (kbId: string) => {
                             setUploads((prev) =>
                                 prev.filter((u) => u.id !== upload.id)
                             );
-                            if(isAxiosError(err) && err.name === "CanceledError") return;
+                            if (isAxiosError(err) && err.name === "CanceledError") return;
                             somethingWentWrongAlert();
                         }
                     })
@@ -86,6 +86,9 @@ const useUploadActions = (kbId: string) => {
         onSuccess: () => {
             queryClient.invalidateQueries({
                 queryKey: ["knowledgeBase", kbId],
+            });
+            queryClient.invalidateQueries({
+                queryKey: ['knowledgeBases'],
             });
         },
     });

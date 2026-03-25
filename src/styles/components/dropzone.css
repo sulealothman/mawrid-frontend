@@ -1,0 +1,14 @@
+@layer components {
+    .dropzone {
+        @apply border-2 border-dashed rounded-lg px-2 md:px-8 py-2 text-center transition-all duration-200 cursor-pointer
+        border-light-400 dark:border-midnight-600;
+    }
+
+    .dropzone-hover {
+        @apply hover:bg-light-200 hover:dark:bg-midnight-900;
+    }
+
+    .dropzone-dragover {
+        @apply border-midnight-300 dark:border-midnight-500;
+    }
+}

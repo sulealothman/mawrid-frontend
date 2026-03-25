@@ -79,7 +79,8 @@ const KnowledgeBaseForm: React.FC<KnowledgeBaseFormProps> = ({
                     <Button
                         onClick={onCancel}
                         disabled={isSubmitting}
-                        variant='secondary'
+                        variant='tertiary'
+                        className='shadow-none'
                     >
                         {t('cancel')}
                     </Button>

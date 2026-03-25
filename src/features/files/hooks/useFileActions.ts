@@ -21,6 +21,9 @@ const useFileActions = () => {
                 queryClient.invalidateQueries({
                     queryKey: ['knowledgeBase', body.knowledge_base_id],
                 });
+                queryClient.invalidateQueries({
+                    queryKey: ['knowledgeBases'],
+                });
                 showCreateFileSuccessToast();
             }
             return response;
@@ -64,6 +67,9 @@ const useFileActions = () => {
             if(response) {
                 queryClient.invalidateQueries({
                     queryKey: ['knowledgeBase', kbId],
+                });
+                queryClient.invalidateQueries({
+                    queryKey: ['knowledgeBases'],
                 });
                 showDeleteFileSuccessToast();
             }

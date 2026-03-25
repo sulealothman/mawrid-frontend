@@ -7,8 +7,8 @@ import useCommonErrorAlertToast from '@/features/shared/hooks/useCommonErrorAler
 import useRedirect from '@/features/shared/hooks/useRedirect';
 
 const useKnowledgeBaseFetch = (kbId: string, isReady: boolean) => {
-    const { somethingWentWrongAlert, notFoundAlert }= useCommonErrorAlertToast();
-    const {redirectToKnowledgeBaseIndex} = useRedirect();
+    const { somethingWentWrongAlert, notFoundAlert } = useCommonErrorAlertToast();
+    const { redirectToKnowledgeBaseIndex } = useRedirect();
     const queryClient = useQueryClient();
 
     const { access_token } = AuthStore();
@@ -19,7 +19,7 @@ const useKnowledgeBaseFetch = (kbId: string, isReady: boolean) => {
             const response = await KnowledgeBaseController.show(kbId, language);
             return response;
         } catch (err: unknown) {
-            if(isAxiosError(err) && err.response?.status === 404) {
+            if (isAxiosError(err) && err.response?.status === 404) {
                 notFoundAlert();
                 redirectToKnowledgeBaseIndex();
                 return;
@@ -34,7 +34,14 @@ const useKnowledgeBaseFetch = (kbId: string, isReady: boolean) => {
         queryFn: fetchKnowledgeBase.bind(null, kbId),
         refetchOnWindowFocus: false,
         staleTime: 1000 * 60 * 5,
-        placeholderData: (previousData) => previousData
+        placeholderData: (previousData) => previousData,
+        refetchInterval: (query) => {
+            const hasPendingFiles = query.state.data?.files?.some(
+                (file) => file.status === 'queued' || file.status === 'processing'
+            );
+
+            return hasPendingFiles ? 10000 : false;
+        },
     }, queryClient);
 
 

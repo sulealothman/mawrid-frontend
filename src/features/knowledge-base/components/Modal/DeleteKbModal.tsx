@@ -26,7 +26,7 @@ export default function DeleteKbModal({
             size='lg'
         >
             <div className="space-y-6">
-                <p className='text-primary'>
+                <p className='text-secondary'>
                     {t('delete_kb_confirmation')}
                 </p>
 
@@ -43,6 +43,8 @@ export default function DeleteKbModal({
 
                     <Button
                         onClick={closeDeleteKbModal}
+                        variant='tertiary'
+                        className='shadow-none'
                     >
                         {t('cancel')}
                     </Button>

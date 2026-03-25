@@ -24,6 +24,9 @@ const useKnowledgeBaseActions = () => {
             const response = await KnowledgeBaseController.store(data, language);
             if (response) {
                 showCreateKbSuccessToast();
+                queryClient.invalidateQueries({
+                    queryKey: ['knowledgeBases'],
+                });
             }
             return response;
         } catch (err: unknown) {

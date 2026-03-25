@@ -40,12 +40,12 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({
         <div className="space-y-4">
             <div
                 className={`
-                     border-2 border-dashed rounded-lg px-2 md:px-8 py-2 text-center transition-all duration-200 cursor-pointer
+                     dropzone
                     ${isDragOver && !isUploading
-                        ? 'border-neutral-400 bg-neutral-900'
-                        : 'border-neutral-600 hover:border-neutral-500'
+                        ? 'dropzone-dragover'
+                        : ''
                     }
-                    ${isUploading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-neutral-300 dark:hover:bg-neutral-700'}
+                    ${isUploading ? 'opacity-50 cursor-not-allowed' : 'dropzone-hover'}
                 `}
                 onDragEnter={handleDragEnter}
                 onDragLeave={handleDragLeave}
@@ -65,7 +65,7 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({
 
                 <div className="space-y-4">
                     <div className="mx-auto w-12 h-12">
-                        <UploadCloudIcon className="w-full h-full icon-stroke" viewBox='0 0 24 24' />
+                        <UploadCloudIcon className="w-full h-full stroke-secondary" viewBox='0 0 24 24' />
                     </div>
 
                     <div>
@@ -75,12 +75,12 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({
                                 : t('drag_drop_files')
                             }
                         </p>
-                        <p className="text-xs md:text-sm text-neutral-500">
+                        <p className="text-xs md:text-sm text-tertiary">
                             {t('or_click_to_browse')}
                         </p>
                     </div>
 
-                    <div className="text-xs text-neutral-500">
+                    <div className="text-xs text-muted">
                         <p>
                             {t('supported_formats', {allowedExtensions: ALLOWED_FILE_TYPES.map(type => type.toUpperCase()).join(', ')})}
                         </p>
