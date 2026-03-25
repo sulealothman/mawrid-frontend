@@ -9,14 +9,14 @@ const ToggleTheme = () =>{
 	return (
 		<button
 			data-testid="theme-toggle-button"
-			className="dark:hover:bg-black/20 cursor-pointer"
+			className="cursor-pointer"
 			onClick={() => {
 				toggleTheme(theme === "light" ? "dark" : "light");
 			}}
 		>
 
-			<SunIcon data-testid="theme-toggle-sun-icon" className=" hidden dark:block stroke-amber-500 h-6 w-6" viewBox="0 0 24 24" />
-			<MoonIcon data-testid="theme-toggle-moon-icon" className="dark:hidden bg-inherit stroke-neutral-400 fill-neutral-400 h-6 w-6" />
+			<SunIcon data-testid="theme-toggle-sun-icon" className=" hidden dark:block stroke-amber-500 size-6" viewBox="0 0 24 24" />
+			<MoonIcon data-testid="theme-toggle-moon-icon" className="dark:hidden bg-inherit stroke-accent fill-accent size-6" />
 			<span data-testid="theme-toggle-sr-text" className="sr-only">
 				Toggle theme
 			</span>

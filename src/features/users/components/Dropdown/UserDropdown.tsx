@@ -19,6 +19,7 @@ import { LogoutIcon } from "@/features/authenticate/icons/AuthIcon";
 import PaintIcon from "@/features/sidebar/icons/PaintIcon";
 import useRedirect from "@/features/shared/hooks/useRedirect";
 import UserAvatar from "./UserAvatar";
+import { KBStore } from "@/features/knowledge-base/store/KBStore";
 
 const ToggleTheme = dynamic(
     () => import("@/features/theme/components/SwitchTheme"),
@@ -37,6 +38,8 @@ export default function UserDropdown({ isCollapse = false }: UserDropdownProps) 
 
     const { logout } = useAuth();
     const { updatePreferences } = useUserActions();
+    const { setKbId } = KBStore();
+    
 
     const handleLanguageChange = (lang: string) => {
         if (user?.preferences?.language === lang) return;
@@ -48,13 +51,18 @@ export default function UserDropdown({ isCollapse = false }: UserDropdownProps) 
         updatePreferences({ dark_mode: isDark });
     };
 
+    const toProfile = () => {
+        setKbId("");
+        redirectToProfile();
+    }
+
     return (
         <Dropdown>
             <Dropdown.Button className="cursor-pointer">
                 <UserAvatar avatar={user?.avatar} name={user?.name} hideName={isCollapse} />
             </Dropdown.Button>
             <Dropdown.Menu placement="top-right" className="w-60">
-                <Dropdown.Item onClick={redirectToProfile}>
+                <Dropdown.Item onClick={toProfile}>
                     <SettingsIcon
                         className="size-4 stroke-primary"
                         viewBox="0 0 24 24"

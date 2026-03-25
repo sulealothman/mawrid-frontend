@@ -19,6 +19,20 @@
   }
 }
 
+@utility stroke-quaternary {
+  @apply stroke-midnight-400;
+  @variant dark {
+    @apply stroke-midnight-700;
+  }
+}
+
+@utility stroke-accent {
+  @apply stroke-midnight-100;
+  @variant dark {
+    @apply stroke-light-900;
+  }
+}
+
 @utility stroke-muted {
   @apply stroke-midnight-400;
   @variant dark {

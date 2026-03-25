@@ -9,7 +9,6 @@ interface ThemeToggleProps {
 	callback?: (isDark: boolean) => void;
 }
 
-
 const SwitchTheme = ({callback}: ThemeToggleProps) => {
 	const { theme, toggleTheme } = useTheme();
 
@@ -28,7 +27,7 @@ const SwitchTheme = ({callback}: ThemeToggleProps) => {
 				viewBox="0 0 24 24" />
 			<MoonIcon
 				data-testid="theme-toggle-moon-icon"
-				className="duration-200 transition-all bg-inherit stroke-neutral-200 fill-neutral-200"
+				className="duration-200 transition-all bg-inherit stroke-light-200 fill-light-200"
 				viewBox="0 0 24 24" />
 		</Switch>
 	);

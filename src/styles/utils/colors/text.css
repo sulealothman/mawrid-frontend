@@ -26,6 +26,13 @@
   }
 }
 
+@utility text-accent {
+  @apply text-midnight-100;
+  @variant dark {
+    @apply text-light-900;
+  }
+}
+
 
 @utility text-muted {
   @apply text-midnight-400;

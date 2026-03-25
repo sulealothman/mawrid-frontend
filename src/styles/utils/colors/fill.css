@@ -26,6 +26,12 @@
   }
 }
 
+@utility fill-accent {
+  @apply fill-midnight-100;
+  @variant dark {
+    @apply fill-light-900;
+  }
+}
 
 @utility fill-muted {
   @apply fill-midnight-400;

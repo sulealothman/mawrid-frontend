@@ -27,8 +27,8 @@ export default function StickyManagement({
                 isUploading={isUploading}            
             />
 
-            <Button onClick={openCreateFileModal} variant='secondary' className='rounded-full size-10 md:size-12 flex items-center justify-center'>
-                <BlankFileIcon className="size-4 md:size-6 icon-stroke" viewBox='0 0 24 24' />
+            <Button onClick={openCreateFileModal} variant='secondary' shape='circle' className='size-10 md:size-12 flex items-center justify-center'>
+                <BlankFileIcon className="size-4 md:size-6 stroke-primary" viewBox='0 0 24 24' />
             </Button>
         </div>
     )

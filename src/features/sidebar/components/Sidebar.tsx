@@ -17,6 +17,7 @@ export default function Sidebar() {
   const { isCollapse, handleClose } = useSidebar();
 
   const {
+    pathname,
     redirectToHome,
     redirectToKnowledgeBase
   } = useRedirect();
@@ -27,6 +28,11 @@ export default function Sidebar() {
   const onSelectKBase = (id: string) => {
     setKbId(id);
     redirectToKnowledgeBase(id);
+  }
+
+  const toHome = () => {
+    setKbId("");
+    redirectToHome();
   }
 
   return (
@@ -41,13 +47,14 @@ export default function Sidebar() {
           <SidebarItem
             title={t('home')}
             icon={
-              <HomeIcon className="size-5 icon-stroke" viewBox='0 0 24 24' />
+              <HomeIcon className="size-5 stroke-primary" viewBox='0 0 24 24' />
             }
-            onClick={() => redirectToHome()}
+            onClick={toHome}
             isCollapse={isCollapse}
+            isActive={pathname === "/home"}
           />
         </div>
-        <Divider className='border-neutral-600 dark:text-neutral-200 mt-0' />
+        <Divider className='border-secondary mx-2' />
 
         {!isCollapse && kbs && kbs.data.length > 0 && (
           <>
@@ -58,8 +65,9 @@ export default function Sidebar() {
             />
           </>
         )}
+        <Divider className='border-secondary mx-2 mb-0' />
 
-        <div className="mt-auto border-t border-neutral-700">
+        <div className="mt-auto">
           <UserDropdown isCollapse={isCollapse} />
         </div>
       </div>

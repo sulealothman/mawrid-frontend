@@ -28,7 +28,7 @@ export default function StickyManagementContainer({
       />
       <div className='fixed bottom-5 left-1/2 -translate-x-1/2 w-full max-w-sm p-2'>
         <div
-        className='bg-neutral-50 dark:bg-neutral-900 border border-neutral-300/50 dark:border-neutral-700/50 shadow-md w-full p-2 rounded-2xl'>
+        className='bg-light-100 dark:bg-midnight-900 border border-light-300/50 dark:border-midnight-700/50 shadow-md w-full p-2 rounded-2xl'>
         <StickyManagement
           newChatHandler={() => redirectToNewChat()}
           handleFileUpload={handleFileUpload}

@@ -32,6 +32,7 @@
     @apply border-midnight-900;
   }
 }
+
 @utility border-danger {
   @apply border-red-300;
   @variant dark {
