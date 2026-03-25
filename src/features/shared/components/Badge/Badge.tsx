@@ -7,9 +7,9 @@ const badgeStyles = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-white',
-        secondary: 'bg-gray-200 text-gray-800',
-        danger: 'bg-red-500/80 text-red-100',
+        primary: 'bg-primary text-primary',
+        secondary: 'bg-tertiary text-secondary',
+        danger: 'bg-danger text-red-900 dark:text-red-100',
       },
       size: {
         sm: 'text-xs px-2.5 py-0.5',

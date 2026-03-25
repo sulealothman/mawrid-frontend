@@ -23,7 +23,7 @@ export default function PhoneInputForm({
 
     return (
         <div className="flex flex-col gap-2">
-            <label htmlFor="phone" className="font-mixed dark:text-neutral-200">
+            <label htmlFor="phone" className="font-mixed text-primary">
                 {t('phone_number')}
             </label>
             <NumberPhoneInput
@@ -49,7 +49,7 @@ export default function PhoneInputForm({
                 required={required}
                 className="input-form phone-input-form"
             />
-            {error && <span className="text-red-500 text-sm">{error}</span>}
+            {error && <span className="text-danger text-sm">{error}</span>}
         </div>
     );
 }

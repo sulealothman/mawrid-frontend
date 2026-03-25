@@ -62,7 +62,7 @@ export default function UserDropdown({ isCollapse = false }: UserDropdownProps) 
                 <UserAvatar avatar={user?.avatar} name={user?.name} hideName={isCollapse} />
             </Dropdown.Button>
             <Dropdown.Menu placement="top-right" className="w-60">
-                <Dropdown.Item onClick={toProfile}>
+                <Dropdown.Item onClick={() => toProfile()}>
                     <SettingsIcon
                         className="size-4 stroke-primary"
                         viewBox="0 0 24 24"

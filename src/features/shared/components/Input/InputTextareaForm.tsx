@@ -55,7 +55,7 @@ export default function InputTextareaForm({
                 minRows={minRows}
                 maxRows={maxRows}
             />
-            <div className='text-red-500'>{error && error}</div>
+            <div className='text-danger'>{error && error}</div>
         </div>
     )
 }

@@ -28,7 +28,6 @@ export default function PasswordInputForm({
             </label>
             <PasswordInput
                 data-testid={testId}
-                className="input-form input-password-form"
                 placeholder={placeholder}
                 value={password}
                 required={required}

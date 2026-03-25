@@ -19,7 +19,7 @@ export default function DefaultNavbar({
                     onClick={backHandler}
                     className="flex items-center gap-1 max-md:text-sm md:gap-2"
                 >
-                    <ArrowLeftIcon className="size-4 icon-stroke" viewBox='0 0 24 24' />
+                    <ArrowLeftIcon className="size-4 stroke-primary" viewBox='0 0 24 24' />
                     <span className='font-bold text-secondary'>{t('back')}</span>
                 </Button>
                 <h1 className='text-center flex-1 text-lg md:text-xl text-primary font-bold font-mixed'>{title}</h1>

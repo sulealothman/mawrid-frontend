@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useI18n } from '../../../localization/hooks/useI18n';
+import Input from './Input';
 
 interface InputFormProps {
     type?: string;
@@ -31,11 +32,11 @@ export default function InputForm({
             <label htmlFor="name" className='font-mixed text-primary'>
                 {t(label)}
             </label>
-            <input
+            <Input
                 required={required}
                 type={type}
                 data-testid={testId}
-                className="input-form"
+                variant='inputForm'
                 placeholder={placeholder}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
@@ -43,7 +44,7 @@ export default function InputForm({
                 onFocus={() => error && setError('')}
                 disabled={disabled}
             />
-            <div className='text-red-500'>{error && error}</div>
+            <div className='text-danger'>{error && error}</div>
         </div>
     )
 }

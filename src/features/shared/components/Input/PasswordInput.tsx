@@ -5,7 +5,6 @@ import { EyeIcon, EyeCloseIcon } from '@/features/authenticate/icons/AuthIcon';
 interface PasswordInputProps {
     id?: string;
     name?: string;
-    className?: string;
     placeholder?: string;
     value?: string;
     required?: boolean;
@@ -16,7 +15,6 @@ interface PasswordInputProps {
 const PasswordInput: React.FC<PasswordInputProps> = ({
     id = "password",
     name = "password",
-    className = "",
     placeholder = "Enter your password",
     value,
     required = false,
@@ -40,20 +38,20 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
                 value={value}
                 onChange={onChange}
                 onFocus={onFocus}
-                className={className}
+                variant='inputPassword'
                 required={required}
                 {...props}
             />
             <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute rtl:left-2 ltr:right-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100"
+                className="absolute rtl:left-2 ltr:right-2 top-1/2 transform -translate-y-1/2"
             >
                 {showPassword ? (
-                    <EyeCloseIcon viewBox='0 0 24 24' className="size-6 icon-stroke" />
+                    <EyeCloseIcon viewBox='0 0 24 24' className="size-6 stroke-tertiary" />
 
                 ) : (
-                    <EyeIcon viewBox='0 0 24 24' className="size-6 icon-stroke" />
+                    <EyeIcon viewBox='0 0 24 24' className="size-6 stroke-tertiary" />
                 )}
             </button>
         </div>
