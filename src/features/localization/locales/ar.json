@@ -107,7 +107,7 @@
   "forgot_password": "نسيت كلمة المرور؟",
   "invalid_login_credentials": "البريد أو كلمة المرور غير صحيحة",
   "email_or_phone_already_exists": "البريد الإلكتروني أو رقم الجوال مستخدم من قبل",
-  "forgot_password_description": "أدخل عنوان بريدك الإلكتروني المستخدم في Adaa وسنرسل لك رابطًا لإعادة تعيين كلمة المرور",
+  "forgot_password_description": "أدخل عنوان بريدك الإلكتروني المستخدم في موّرد وسنرسل لك رابطًا لإعادة تعيين كلمة المرور",
   "forgot_password_sent_link_title": "تم إرسال رابط إعادة تعيين كلمة المرور",
   "forgot_password_sent_successfully": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني بنجاح",
   "reset_password": "إعادة تعيين كلمة المرور",

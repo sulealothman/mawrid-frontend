@@ -12,7 +12,7 @@ export default function LanguageDropdown() {
       >
       <DropdownButton>
         <div className="flex items-center space-x-2">
-           <LanguageIcon className="w-4 h-4 icon-stroke" viewBox="0 0 24 24" />
+           <LanguageIcon className="w-4 h-4 stroke-primary" viewBox="0 0 24 24" />
         </div>
       </DropdownButton>
       <DropdownMenu className="w-32!">

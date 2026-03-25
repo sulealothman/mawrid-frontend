@@ -107,7 +107,7 @@
   "forgot_password": "Forgot password?",
   "invalid_login_credentials": "Invalid login credentials",
   "email_or_phone_already_exists": "Email or phone number already exists",
-  "forgot_password_description": "Enter your email address used in Adaa and we will send you a link to reset your password",
+  "forgot_password_description": "Enter your email address used in Mawrid and we will send you a link to reset your password",
   "forgot_password_sent_link_title": "Reset password link sent",
   "forgot_password_sent_successfully": "Reset password link sent successfully to your email",
   "reset_password": "Reset password",
