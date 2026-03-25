@@ -56,13 +56,13 @@ export default function UserDropdown({ isCollapse = false }: UserDropdownProps) 
             <Dropdown.Menu placement="top-right" className="w-60">
                 <Dropdown.Item onClick={redirectToProfile}>
                     <SettingsIcon
-                        className="size-4 icon-stroke"
+                        className="size-4 stroke-primary"
                         viewBox="0 0 24 24"
                     />
                     <span>{t("settings")}</span>
                 </Dropdown.Item>
                 <div className="flex items-center gap-2 px-2 py-2 text-sm text-primary cursor-default">
-                    <PaintIcon className="size-4 icon-text" />
+                    <PaintIcon className="size-4 text-primary" />
 
                     <div className="flex flex-1 justify-between items-center font-mixed">
                         <span>{t("system_appearance")}</span>
@@ -77,7 +77,7 @@ export default function UserDropdown({ isCollapse = false }: UserDropdownProps) 
                         <div className="flex items-center justify-between px-2 py-2 text-sm text-primary w-full">
                             <div className="flex items-center gap-2 font-mixed">
                                 <LanguageIcon
-                                    className="size-4 icon-stroke"
+                                    className="size-4 stroke-primary"
                                     viewBox="0 0 24 24"
                                 />
                                 <span>{t("language")}</span>
@@ -92,12 +92,12 @@ export default function UserDropdown({ isCollapse = false }: UserDropdownProps) 
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <div className="border-t border-neutral-700 my-1"></div>
+                <div className="border-t border-tertiary my-1"></div>
                 <Dropdown.Item
                     onClick={() => logout()}
                 >
                     <LogoutIcon
-                        className="size-4 stroke-red-400"
+                        className="size-4 stroke-danger"
                         viewBox="0 0 24 24"
                     />
                     <span className="text-danger">{t("logout")}</span>

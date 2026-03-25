@@ -22,7 +22,7 @@ export default function DeactivateAccountModal({
             size='lg'
         >
             <div className="space-y-6">
-                <p className='text-primary'>
+                <p className='text-secondary'>
                     {t('deactivate_account_confirmation')}
                 </p>
 
@@ -36,6 +36,8 @@ export default function DeactivateAccountModal({
 
                     <Button
                         onClick={closeDeactivateAccountModal}
+                        variant='tertiary'
+                        className='shadow-none'
                     >
                         {t('cancel')}
                     </Button>

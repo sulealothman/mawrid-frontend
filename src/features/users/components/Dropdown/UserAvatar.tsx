@@ -15,7 +15,7 @@ export default function UserAvatar({
     const [isErrorLoading, setIsErrorLoading] = useState(false);
     return (
         <div className="p-4 flex items-center gap-3 overflow-hidden w-full">
-            <div className="size-7 bg-neutral-700 rounded-full flex items-center justify-center">
+            <div className="size-7 bg-tertiary rounded-full flex items-center justify-center">
                 {avatar && !isErrorLoading ? (
                     <img
                         src={avatar}
@@ -26,7 +26,7 @@ export default function UserAvatar({
                 ) : (
                     <UserAvatarIcon
                         viewBox="0 0 20 24"
-                        className="size-6 shrink-0 icon-fill-secondary"
+                        className="size-6 shrink-0 fill-secondary"
                     />
                 )}
             </div>

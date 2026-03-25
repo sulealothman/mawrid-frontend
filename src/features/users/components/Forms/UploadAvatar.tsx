@@ -25,7 +25,7 @@ export default function UploadAvatar({
 }: UploadAvatarProps) {
   const { t } = useI18n();
   return (
-    <div className='flex rounded-xl px-4 py-4 w-full bg-primary shadow-md border border-neutral-300/50 dark:border-neutral-700/50'>
+    <div className='flex rounded-xl px-4 py-4 w-full bg-accent shadow-md border border-secondary'>
       <UploadImageInputForm avatar={avatar} onChange={(e) => {
         const file = e.target.files?.[0];
 
@@ -44,11 +44,10 @@ export default function UploadAvatar({
       <div className='flex flex-col justify-center ms-4'>
         <h2 className='font-semibold text-xl font-mixed text-primary pb-2'>{t('upload_avatar')}</h2>
         <div className="flex">
-          <Button onClick={() => file && uploadAvatar(file)}>{t('upload')}</Button>
+          <Button onClick={() => file && uploadAvatar(file)} variant='tertiary' className='shadow-none'>{t('upload')}</Button>
           <Button variant="danger" className='ml-2 w-fit' onClick={removeAvatar}>{t('remove')}</Button>
-
         </div>
-        <span className='text-sm text-gray-500 mt-2 font-mixed'>
+        <span className='text-sm text-tertiary mt-2 font-mixed'>
           {t('supported_formats', {
             allowedExtensions: ALLOWED_IMAGE_TYPES.join(', ')
             })} - {t('max_file_size', { maxSize: formatFileSize(MAX_IMAGE_FILE_SIZE) })}

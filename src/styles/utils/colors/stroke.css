@@ -1,0 +1,34 @@
+@utility stroke-primary {
+  @apply stroke-midnight-950;
+  @variant dark {
+    @apply stroke-light-50;
+  }
+}
+
+@utility stroke-secondary {
+  @apply stroke-midnight-800;
+  @variant dark {
+    @apply stroke-light-100;
+  }
+}
+
+@utility stroke-tertiary {
+  @apply stroke-midnight-600;
+  @variant dark {
+    @apply stroke-light-300;
+  }
+}
+
+@utility stroke-muted {
+  @apply stroke-midnight-400;
+  @variant dark {
+    @apply stroke-light-800;
+  }
+}
+
+@utility stroke-danger {
+  @apply stroke-red-500;
+  @variant dark {
+    @apply stroke-red-400;
+  }
+}

@@ -1,0 +1,19 @@
+@layer components {
+
+  .sidebar {
+    @apply fixed md:sticky z-50 top-0 min-h-screen shrink-0 p-0 duration-200 flex flex-col bg-primary dark:bg-midnight-900;
+  }
+
+  .sidebar-collapse {
+    @apply max-md:bg-transparent max-md:border-none max-md:shadow-none;
+  }
+
+  .sidebar-header {
+    @apply p-4 pb-3 text-primary;
+  }
+
+  .sidebar-item {
+    @apply text-base text-primary;
+  }
+
+}

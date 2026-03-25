@@ -27,7 +27,7 @@ export default function UserInformationForm({
   const { inputEmailValidator, inputNameValidator } = useFormValidator();
 
   return (
-    <div className='flex flex-col gap-2 rounded-xl px-4 py-4 w-full bg-primary shadow-md border border-neutral-300/50 dark:border-neutral-700/50'>
+    <div className='flex flex-col gap-2 rounded-xl px-4 py-4 w-full bg-accent shadow-md border border-secondary'>
       <h2 className='font-semibold text-lg font-mixed text-primary'>{t('user_information')}</h2>
       <InputForm
         label='name'

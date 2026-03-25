@@ -1,0 +1,48 @@
+@utility bg-grandient {
+  @apply bg-linear-to-br from-light-100 to-light-200 to-80%;
+  @variant dark {
+    @apply bg-linear-to-br from-midnight-900 to-midnight-950 to-80%;
+  }
+}
+
+@utility bg-primary {
+  @apply bg-light-50 disabled:bg-light-50/70;
+   @variant dark {
+    @apply bg-midnight-950 disabled:bg-midnight-950/70;
+  }
+}
+
+@utility bg-secondary {
+  @apply bg-light-100 disabled:bg-light-100/70;
+  @variant dark {
+    @apply bg-midnight-800 disabled:bg-midnight-800/70;
+  }
+}
+
+@utility bg-tertiary {
+  @apply bg-light-300 disabled:bg-light-300/70;
+  @variant dark {
+    @apply bg-midnight-600 disabled:bg-midnight-600/70;
+  }
+}
+
+@utility bg-quaternary {
+  @apply bg-light-200 disabled:bg-light-200/70;
+   @variant dark {
+    @apply bg-light-300 disabled:bg-light-300/70;
+  }
+}
+
+@utility bg-accent {
+  @apply bg-light-100 disabled:bg-light-100/70;
+   @variant dark {
+    @apply bg-midnight-900 disabled:bg-midnight-900/70;
+  }
+}
+
+@utility bg-danger {
+  @apply bg-red-300 disabled:bg-red-300/70;
+   @variant dark {
+    @apply bg-red-500 disabled:bg-red-500/70;
+  }
+}

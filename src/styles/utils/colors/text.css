@@ -1,0 +1,49 @@
+@utility text-primary {
+  @apply text-midnight-950;
+  @variant dark {
+    @apply text-light-50;
+  }
+}
+
+@utility text-secondary {
+  @apply text-midnight-800;
+  @variant dark {
+    @apply text-light-100;
+  }
+}
+
+@utility text-tertiary {
+  @apply text-midnight-600;
+  @variant dark {
+    @apply text-light-300;
+  }
+}
+
+@utility text-quaternary {
+  @apply text-midnight-400;
+  @variant dark {
+    @apply text-midnight-700;
+  }
+}
+
+
+@utility text-muted {
+  @apply text-midnight-400;
+  @variant dark {
+    @apply text-light-800;
+  }
+}
+
+@utility text-success {
+  @apply text-green-600;
+  @variant dark {
+    @apply text-green-400;
+  }
+}
+
+@utility text-danger {
+  @apply text-red-500;
+  @variant dark {
+    @apply text-red-400;
+  }
+}

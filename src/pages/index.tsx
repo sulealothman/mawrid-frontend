@@ -12,10 +12,11 @@ export default function Index() {
   return (
     <div className="font-mixed h-full w-full flex flex-col justify-center items-center overflow-hidden">
       <Logo className="size-32 mb-4 opacity-95" />
-      <h1 className='text-primary text-4xl font-mixed font-semibold'>{t('app_name')}</h1>
+      <h1 className='text-primary text-6xl font-mixed font-semibold'>{t('app_name')}</h1>
       <p className='text-secondary text-xl font-semibold py-3'>{t('app_description')}</p>
+      <div className='py-4'/>
       <Button
-        className='text-black dark:bg-neutral-100 font-mixed font-semibold px-6'
+        className='px-6'
         variant="secondary"
         onClick={() => redirectToAuthenticate()}
       >

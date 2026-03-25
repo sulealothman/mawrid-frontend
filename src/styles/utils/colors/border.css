@@ -1,0 +1,40 @@
+@utility border-primary {
+  @apply border-light-50;
+  @variant dark {
+    @apply border-midnight-950;
+  }
+}
+
+@utility border-secondary {
+  @apply border-light-100;
+  @variant dark {
+    @apply border-midnight-800;
+  }
+}
+
+@utility border-tertiary {
+  @apply border-light-300;
+  @variant dark {
+    @apply border-midnight-600;
+  }
+}
+
+@utility border-quaternary {
+  @apply border-light-200;
+  @variant dark {
+    @apply border-light-300;
+  }
+}
+
+@utility border-accent {
+  @apply border-light-100;
+  @variant dark {
+    @apply border-midnight-900;
+  }
+}
+@utility border-danger {
+  @apply border-red-300;
+  @variant dark {
+    @apply border-red-500;
+  }
+}

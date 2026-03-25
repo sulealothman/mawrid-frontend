@@ -1,0 +1,17 @@
+@utility text-direction {
+  unicode-bidi: plaintext;
+}
+
+@utility d-ltr {
+  direction: ltr;
+}
+
+@utility font-mixed {
+  @variant rtl {
+    @apply font-noto-sans-arabic;
+  }
+
+  @variant ltr {
+    @apply font-nunito;
+  }
+}

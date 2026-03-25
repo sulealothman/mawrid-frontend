@@ -1,0 +1,9 @@
+:root {
+  --font-noto-sans-arabic: "Noto Sans Arabic", "Noto Sans Arabic", "Noto Naskh Arabic", "DejaVu Sans", "KacstOne", sans-serif;
+  --font-nunito: "Nunito", "Cantarell", "Noto Sans", "Ubuntu", "DejaVu Sans", sans-serif;
+}
+
+@theme {
+  --font-noto-sans-arabic: "Noto Sans Arabic", "Noto Sans Arabic", "Noto Naskh Arabic", "DejaVu Sans", "KacstOne", sans-serif;
+  --font-nunito: "Nunito", "Cantarell", "Noto Sans", "Ubuntu", "DejaVu Sans", sans-serif;
+}

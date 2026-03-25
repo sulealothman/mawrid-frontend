@@ -1,0 +1,42 @@
+@utility fill-primary {
+  @apply fill-midnight-950;
+  @variant dark {
+    @apply fill-light-50;
+  }
+}
+
+@utility fill-secondary {
+  @apply fill-midnight-800;
+  @variant dark {
+    @apply fill-light-100;
+  }
+}
+
+@utility fill-tertiary {
+  @apply fill-midnight-600;
+  @variant dark {
+    @apply fill-light-300;
+  }
+}
+
+@utility fill-quaternary {
+  @apply fill-midnight-400;
+  @variant dark {
+    @apply fill-midnight-700;
+  }
+}
+
+
+@utility fill-muted {
+  @apply fill-midnight-400;
+  @variant dark {
+    @apply fill-light-800;
+  }
+}
+
+@utility fill-danger {
+  @apply fill-red-500;
+  @variant dark {
+    @apply fill-red-400;
+  }
+}
