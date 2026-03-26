@@ -20,12 +20,11 @@ export default function MessageUser({ message }: MessageUserProps) {
           <div className="max-w-2xl">
 
             <div
-              className={`rounded-2xl px-4 py-2 bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white`}
+              className={`rounded-2xl px-4 py-2 bg-tertiary`}
               ref={refContent}
             >
               <MarkdownRenderer
                 content={message.content}
-                isUser={true}
               />
             </div>
 

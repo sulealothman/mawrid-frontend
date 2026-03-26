@@ -36,7 +36,7 @@ const ChatsList: React.FC<ChatsListProps> = ({
         if (isSubmitting) return;
         if (selectedChat) {
             const response = await updateChat(selectedChat.id!, { title: newName });
-            if(response) {
+            if (response) {
                 closeEditChatModal();
             }
         }
@@ -54,40 +54,40 @@ const ChatsList: React.FC<ChatsListProps> = ({
 
     return (
         <>
-        {showEditChatModal && selectedChat && (
-                        <RenameChatModal
-                            showEditChatModal={showEditChatModal}
-                            closeEditChatModal={closeEditChatModal}
-                            selectedChat={selectedChat}
-                            editChatHandler={editChatHandler}
-                            isSubmitting={isSubmitting}
-                        />
-                    )}
-        
-                    {showDeleteChatModal && selectedChat && (
-                        <DeleteChatModal
-                            showDeleteChatModal={showDeleteChatModal}
-                            closeDeleteChatModal={() => setShowDeleteChatModal(false)}
-                            selectedChat={selectedChat}
-                            deleteChatHandler={deleteChatHandler}
-                            isSubmitting={isSubmitting}
-                            
-                        />
-                    )}
-        <div className="overflow-y-auto custom-scrollbar">
-            <div className='space-y-2 px-2'>
-                {chats.map((chat) => (
-                <ChatItem
-                    key={chat.id}
-                    chat={chat}
-                    redirectToChat={redirectToChat}
-                    setSelectedChat={setSelectedChat}
-                    setShowEditChatModal={setShowEditChatModal}
-                    setShowDeleteChatModal={setShowDeleteChatModal}
+            {showEditChatModal && selectedChat && (
+                <RenameChatModal
+                    showEditChatModal={showEditChatModal}
+                    closeEditChatModal={closeEditChatModal}
+                    selectedChat={selectedChat}
+                    editChatHandler={editChatHandler}
+                    isSubmitting={isSubmitting}
                 />
-            ))}
+            )}
+
+            {showDeleteChatModal && selectedChat && (
+                <DeleteChatModal
+                    showDeleteChatModal={showDeleteChatModal}
+                    closeDeleteChatModal={() => setShowDeleteChatModal(false)}
+                    selectedChat={selectedChat}
+                    deleteChatHandler={deleteChatHandler}
+                    isSubmitting={isSubmitting}
+
+                />
+            )}
+            <div className="overflow-y-auto custom-scrollbar">
+                <div className='space-y-2 px-2'>
+                    {chats.map((chat) => (
+                        <ChatItem
+                            key={chat.id}
+                            chat={chat}
+                            redirectToChat={redirectToChat}
+                            setSelectedChat={setSelectedChat}
+                            setShowEditChatModal={setShowEditChatModal}
+                            setShowDeleteChatModal={setShowDeleteChatModal}
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
         </>
     );
 };

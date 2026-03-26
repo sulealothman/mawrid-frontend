@@ -49,15 +49,16 @@ export const MessageInput: React.FC<MessageInputProps> = ({
             <Button
               onClick={handleSend}
               disabled={!inputMessage.trim() || disabled}
-              className='shrink-0 size-7 md:size-8 rounded-full flex items-center justify-center'
-              variant='secondary'
+              className='shrink-0 size-7 md:size-8 flex items-center justify-center shadow-none'
+              variant='tertiary'
+              shape='circle'
             >
-              <SendIcon className="size-4 md:size-5 shrink-0 icon-fill rtl:rotate-180" viewBox="0 0 24 24" />
+              <SendIcon className="size-4 md:size-5 shrink-0 fill-midnight-950 rtl:rotate-180" viewBox="0 0 24 24" />
             </Button>
           </div>
         </div>
         
-        <div className="mt-3 text-xs text-neutral-500 dark:text-neutral-400 text-center">
+        <div className="mt-3 text-xs text-muted text-center">
           {t('send_message_alt')}
         </div>
       </div>

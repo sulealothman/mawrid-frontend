@@ -18,14 +18,12 @@ export default function MessageAssistant({ message }: MessageAssistantProps) {
         <div className={`flex w-full justify-end ltr:flex-row-reverse`}>
 
           <div className="flex-1">
-
             <div
               className={`rounded-2xl px-2`}
               ref={refContent}
             >
               <MarkdownRenderer
                 content={message.content}
-                isUser={false}
               />
             </div>
 

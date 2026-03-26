@@ -12,7 +12,7 @@ import useAuthMount from '@/features/authenticate/hooks/useAuthMount';
 
 
 export default function ChatPage() {
-    const { isMounted } = useAuthMount();
+  const { isMounted } = useAuthMount();
 
   const { kb_id } = KBStore();
   const router = useRouter();

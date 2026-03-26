@@ -25,7 +25,7 @@ export default function CopyMessage({ contentRef }: CopyMessageProps) {
     if (isCopied)
         return (
             <CheckIcon
-                className='size-5 icon-stroke'
+                className='size-5 stroke-tertiary'
                 strokeClassName='stroke-2'
                 viewBox='0 0 24 24'
             />
@@ -36,7 +36,7 @@ export default function CopyMessage({ contentRef }: CopyMessageProps) {
             onClick={copyHandle}
             viewBox='0 0 24 24'
             strokeClassName='stroke-[1.5px]'
-            className='size-5 stroke-neutral-500 dark:stroke-neutral-400 cursor-pointer'
+            className='size-5 stroke-muted cursor-pointer'
         />
     )
 }
