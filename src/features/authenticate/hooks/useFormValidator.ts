@@ -27,7 +27,7 @@ const useFormValidator = () => {
             return errors;
         }
         if (!isValidName(name)) errors.push('input_name_invalid');
-        if (!isValidEmail(email)) errors.push('input_email_invalid');
+        if (!isValidEmail(email)) errors.push('email_invalid');
         if (!isValidPhoneNumber(phoneNumber)) errors.push('invalid_phone_number');
         if (password.length < 6) errors.push('password_too_short');
         if (password.length > 128) errors.push('password_too_long');
@@ -44,7 +44,7 @@ const useFormValidator = () => {
             if (!password) errors.push('input_password_required');
             return errors;
         }
-        if (!isValidEmail(email)) errors.push('input_email_invalid');
+        if (!isValidEmail(email)) errors.push('email_invalid');
         if (password.length < 6) errors.push('password_too_short');
         if (password.length > 128) errors.push('password_too_long');
         return errors;
@@ -57,7 +57,7 @@ const useFormValidator = () => {
     }: SubmitUpdateUserRequest) => {
         const errors: string[] = [];
         if (!isValidName(name!)) errors.push('input_name_invalid');
-        if (!isValidEmail(email!)) errors.push('input_email_invalid');
+        if (!isValidEmail(email!)) errors.push('email_invalid');
         if (!isValidPhoneNumber(phone!)) errors.push('invalid_phone_number');
         return errors;
     }
@@ -93,22 +93,20 @@ const useFormValidator = () => {
     }
 
     const inputEmailValidator = (email: string, callback: (error: string | string) => void) => {
-        if (!isValidEmail(email.trim())) {
+        if (!isValidEmail(email.trim()) || email.trim().length > 100) {
             callback(t('email_invalid'));
-        } else if (email.trim().length > 100) {
-            callback(t('email_too_long'));
         }
     }
 
     const inputNameValidator = (name: string, callback: (error: string | string) => void) => {
-                        if (!isValidName(name.trim()) && name.trim().length < 2) {
-                            callback(t('input_too_short'));
-                        } else if(!isValidName(name.trim()) && name.trim().length > 40) {
-                            callback(t('input_too_long'));
-                        } else if(!isValidName(name.trim())) {
-                            callback(t('input_invalid'));
-                        }
-                    
+        if (!isValidName(name.trim()) && name.trim().length < 2) {
+            callback(t('input_name_too_short'));
+        } else if (!isValidName(name.trim()) && name.trim().length > 40) {
+            callback(t('input_name_too_long'));
+        } else if (!isValidName(name.trim())) {
+            callback(t('input_name_invalid'));
+        }
+
     }
 
     return {

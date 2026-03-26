@@ -2,6 +2,7 @@ import { useI18n } from '@/features/localization/hooks/useI18n';
 import { getCountLabel } from '@/features/localization/utils/countLabel';
 import Button from '@/features/shared/components/Button/Button';
 import { DeleteIcon, EditIcon } from '@/features/shared/icons/CommonIcons';
+import { KnowledgeBaseIcon } from '../icons/KnowledgeBaseIcon';
 
 interface KnowledgeBaseItemProps {
     kb: KnowledgeBase;
@@ -18,24 +19,27 @@ export default function KnowledgeBaseItem({
     setShowDeleteKbModal
 }: KnowledgeBaseItemProps) {
     const { t } = useI18n();
-    
+
     return (
         <div
             key={kb.id}
-            className="bg-accent shadow-md border border-secondary rounded-lg p-2 md:p-4 transition-colors cursor-pointer"
+            className="bg-accent shadow-md border border-secondary rounded-lg p-2 md:p-4 transition-colors cursor-pointer group"
             onClick={() => onSelect(kb)}
         >
-            <div className="flex justify-between items-start">
+            <div className="flex gap-2 justify-between items-start">
+                <div className='flex items-center justify-center p-3 rounded-xl duration-200 bg-tertiary dark:bg-secondary group-hover:bg-quaternary group-hover:dark:bg-tertiary'>
+                    <KnowledgeBaseIcon className="size-4 md:size-6 shrink-0 stroke-secondary" viewBox='0 0 24 24' />
+                </div>
                 <div className="flex-1">
-                    <h3 className="text-base md:text-lg font-semibold text-primary mb-1 font-noto-sans-arabic">
+                    <h3 className="text-base md:text-lg font-semibold text-secondary mb-1 font-noto-sans-arabic">
                         {kb.title}
                     </h3>
                     {kb.description && (
-                        <p className="text-secondary text-sm mb-2 line-clamp-2 font-noto-sans-arabic">
+                        <p className="text-tertiary text-sm mb-2 line-clamp-2 font-noto-sans-arabic">
                             {kb.description}
                         </p>
                     )}
-                    <div className="flex items-center gap-4 text-xs text-secondary">
+                    <div className="flex items-center gap-4 text-xs text-muted">
                         <span>
                             {getCountLabel(t, 'files', kb.files_count || 0)}
                         </span>

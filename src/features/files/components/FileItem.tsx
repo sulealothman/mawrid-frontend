@@ -1,3 +1,4 @@
+import { FileIcon } from '@/features/knowledge-base/icons/KnowledgeBaseIcon';
 import { useI18n } from '@/features/localization/hooks/useI18n';
 import Badge from '@/features/shared/components/Badge/Badge';
 import Button from '@/features/shared/components/Button/Button';
@@ -20,9 +21,12 @@ export default function FileItem({
     return (
         <div
             key={file.id}
-            className="bg-accent shadow-md border border-secondary rounded-lg p-4 transition-colors cursor-pointer"
+            className="bg-accent shadow-md border border-secondary rounded-lg p-4 transition-colors cursor-pointer group"
         >
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-start gap-2">
+                <div className='flex items-center justify-center p-3 rounded-xl duration-200 bg-tertiary dark:bg-secondary group-hover:bg-quaternary group-hover:dark:bg-tertiary'>
+                    <FileIcon className="size-4 md:size-6 shrink-0 stroke-secondary" viewBox='0 0 24 24' />
+                </div>
                 <div className="flex items-center space-x-3 flex-1 min-w-0">
                     <div className="flex-1 min-w-0">
                         <div className='flex items-center gap-3'>

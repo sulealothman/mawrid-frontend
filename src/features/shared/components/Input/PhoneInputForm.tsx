@@ -49,7 +49,7 @@ export default function PhoneInputForm({
                 required={required}
                 className="input-form phone-input-form"
             />
-            {error && <span className="text-danger text-sm">{error}</span>}
+            {error && <span className="text-danger text-xs">{error}</span>}
         </div>
     );
 }

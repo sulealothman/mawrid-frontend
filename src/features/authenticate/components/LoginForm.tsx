@@ -7,6 +7,7 @@ import ListErrors from '@/features/shared/components/Box/ListErrors';
 import { useI18n } from '@/features/localization/hooks/useI18n';
 import LogoTitle from '@/features/navbar/components/LogoTitle';
 import useFormValidator from '../hooks/useFormValidator';
+import Button from '@/features/shared/components/Button/Button';
 
 
 interface LoginFormProps {
@@ -30,10 +31,10 @@ const LoginForm = ({
     const { inputEmailValidator } = useFormValidator();
 
     return (
-        <form  className="flex flex-col gap-3 w-full max-w-xs p-2">
+        <form  className="flex flex-col gap-3 w-full max-w-sm p-2">
             <LogoTitle className='text-3xl justify-center mb-4' logoClassName='size-7' />
             <Title text={t('login')} />
-            <Divider />
+            <Divider className='border-tertiary' />
             <ListErrors errors={errors} />
             <InputForm
                 label='email'
@@ -52,20 +53,20 @@ const LoginForm = ({
                 setPassword={setPassword}
             />
             <Link
-                className='font-mixed pb-3 text-black/40 dark:text-white/90 font-semibold'
+                className='font-mixed pb-3 text-secondary font-semibold'
                 href='/authenticate/forgot-password'>
                     {t('forgot_password')}
             </Link>
 
             <div className='flex flex-col gap-2'>
-                <button className='bg-black text-white shadow-sm rounded-lg p-2 font-mixed' onClick={loginHandler}>
+                <Button onClick={loginHandler}>
                     {t('login')}
-                </button>
+                </Button>
             </div>
 
             <div className="flex items-center justify-center gap-2 font-mixed">
-                <span className='text-black/40 dark:text-white/70'>{t('didnt_have_an_account')}</span>
-                <Link href='/authenticate/signup' className='text-black/70 dark:text-white/90 font-semibold'>{t('create_account')}</Link>
+                <span className='text-tertiary'>{t('didnt_have_an_account')}</span>
+                <Link href='/authenticate/signup' className='text-secondary font-bold'>{t('create_account')}</Link>
             </div>
         </form>
     )

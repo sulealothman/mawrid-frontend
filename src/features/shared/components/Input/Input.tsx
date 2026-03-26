@@ -14,7 +14,7 @@ const inputStyles = cva(
             },
             inputSize: {
                 small: "text-sm py-1 px-2",
-                medium: "text-base py-2.5 px-3",
+                medium: "text-sm py-2 px-3",
                 large: "text-lg py-3 px-4",
                 noSize: "",
             },

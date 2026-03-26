@@ -1,7 +1,10 @@
-import PasswordInput from '@/features/shared/components/Input/PasswordInput';
 import Title from '@/features/shared/components/Title/Title';
 import ListErrors from '@/features/shared/components/Box/ListErrors';
 import { useI18n } from '@/features/localization/hooks/useI18n';
+import Button from '@/features/shared/components/Button/Button';
+import PasswordInputForm from '@/features/shared/components/Input/PasswordInputForm';
+import LogoTitle from '@/features/navbar/components/LogoTitle';
+import Divider from '@/features/shared/components/Divider';
 
 interface ResetPasswordFormProps {
     newPassword: string;
@@ -23,39 +26,36 @@ export const ResetPasswordForm = ({
     const { t } = useI18n();
 
     return (
-        <div className="flex flex-col gap-3 w-full max-w-xs p-2">
+        <div className="flex flex-col gap-3 w-full max-w-sm p-2">
+            <LogoTitle className='text-3xl justify-center mb-4' logoClassName='size-7' />
+
             <Title text={t('reset_password')} />
 
+            <Divider className='border-tertiary' />
+
+
             <ListErrors errors={errors} />
-            
-            <div className='flex flex-col gap-2'>
-                <label htmlFor="email" className='rtl:font-noto-sans ltr:font-nunito text-black/70 dark:text-neutral-200'>
-                    {t('new_password')}
-                </label>
-                <PasswordInput
-                    className="w-full"
-                    placeholder={t('new_password_placeholder')}
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                />
-            </div>
 
-            <div className='flex flex-col gap-2'>
-                <label htmlFor="email" className='rtl:font-noto-sans ltr:font-nunito text-black/70 dark:text-neutral-200'>
-                    {t('new_password_confirmation')}
-                </label>
-                <PasswordInput
-                    className="w-full"
-                    placeholder={t('new_password_confirmation_placeholder')}
-                    value={newPasswordConfrimation}
-                    onChange={(e) => setNewPasswordConfirmation(e.target.value)}
-                />
-            </div>
+            <PasswordInputForm
+                label='new_password'
+                testId='new-password-input'
+                placeholder={t('new_password_placeholder')}
+                password={newPassword}
+                setPassword={setNewPassword}
+            />
 
-            <div className='flex flex-col gap-2'>
-                <button className='bg-black text-white rounded-lg p-2 rtl:font-noto-sans ltr:font-nunito' onClick={() => resetPasswordHandler(newPassword, newPasswordConfrimation)}>
+            <PasswordInputForm
+                label='new_password_confirmation'
+                testId='new-password-confirmation-input'
+                placeholder={t('new_password_confirmation_placeholder')}
+                password={newPasswordConfrimation}
+                setPassword={setNewPasswordConfirmation}
+            />
+
+            <div className='flex flex-col gap-2 mt-4'>
+                <Button onClick={() => resetPasswordHandler(newPassword, newPasswordConfrimation)}>
                     {t('confirm')}
-                </button>
+                </Button>
             </div>
         </div>
     )

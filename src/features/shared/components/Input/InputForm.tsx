@@ -44,7 +44,7 @@ export default function InputForm({
                 onFocus={() => error && setError('')}
                 disabled={disabled}
             />
-            <div className='text-danger'>{error && error}</div>
+            <div className='text-danger text-xs'>{error && error}</div>
         </div>
     )
 }

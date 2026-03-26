@@ -8,6 +8,7 @@ import ListErrors from '@/features/shared/components/Box/ListErrors';
 import { useI18n } from '@/features/localization/hooks/useI18n';
 import LogoTitle from '@/features/navbar/components/LogoTitle';
 import useFormValidator from '../hooks/useFormValidator';
+import Button from '@/features/shared/components/Button/Button';
 
 interface SignupFormProps {
   name: string;
@@ -39,11 +40,11 @@ export const SignupForm = ({
     const { inputEmailValidator, inputNameValidator } = useFormValidator();
 
   return (
-    <form className="flex flex-col gap-3 w-full max-w-xs p-2">
+    <form className="flex flex-col gap-3 w-full max-w-sm p-2">
         <LogoTitle className='text-3xl justify-center mb-4' logoClassName='size-7' />
         <Title text={t('create_a_new_account')} />
 
-        <Divider />
+        <Divider className='border-tertiary' />
 
         <ListErrors errors={errors} />
         
@@ -86,15 +87,14 @@ export const SignupForm = ({
         />
 
         <div className='flex flex-col gap-2'>
-          <button className='bg-black text-white rounded-lg p-2 font-mixed'
-           onClick={registerHandler}>
+          <Button onClick={registerHandler}>
             {t('create_account')}
-          </button>
+          </Button>
         </div>
 
         <div className="flex items-center justify-center gap-2 font-mixed">
-                <span className='text-black/70 dark:text-white/70'>{t('already_have_an_account')}</span>
-                <Link className='font-semibold dark:text-white/90' href='/authenticate'>{t('login')}</Link>
+                <span className='text-tertiary'>{t('already_have_an_account')}</span>
+                <Link className='text-secondary font-bold' href='/authenticate'>{t('login')}</Link>
             </div>
       </form>
   )

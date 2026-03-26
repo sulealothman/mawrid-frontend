@@ -3,16 +3,16 @@
     @apply text-sm font-medium font-mixed text-primary;
   }
   .input-form {
-    @apply border-2 border-tertiary bg-secondary text-secondary rounded-xl p-3 font-noto-sans-arabic outline-none duration-150;
+    @apply border-2 border-tertiary bg-secondary text-secondary rounded-xl py-2 font-noto-sans-arabic outline-none duration-150;
   }
   .input-password-form {
-    @apply w-full px-3 py-3;
+    @apply w-full px-3 py-2;
   }
   .phone-input-form {
-    @apply px-2 py-2 h-12 w-full;
+    @apply px-2 py-2 w-full;
   }
   .phone-input-form input {
-    @apply outline-none text-base;
+    @apply outline-none text-sm;
   }
 
   .input-textarea-form {
