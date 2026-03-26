@@ -8,18 +8,20 @@ interface StickyManagementProps {
     handleFileUpload: (files: FileList) => void;
     isUploading: boolean;
     openCreateFileModal: () => void;
+    canStartNewChat: boolean;
 }
 
 export default function StickyManagement({
     newChatHandler,
     handleFileUpload,
     isUploading,
+    canStartNewChat,
     openCreateFileModal
 }: StickyManagementProps) {
     const { t } = useI18n();
     return (
         <div className='w-full flex gap-2'>
-            <Button className='flex-1 rounded-xl max-md:text-sm' onClick={newChatHandler}>
+            <Button className='flex-1 rounded-xl max-md:text-sm' onClick={newChatHandler} disabled={!canStartNewChat}>
                 {t('new_chat')}
             </Button>
             <UploadFileInput

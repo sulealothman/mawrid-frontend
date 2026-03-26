@@ -7,10 +7,12 @@ import CreateFileModal from '@/features/files/components/Modal/CreateFileModel';
 
 interface StickyManagementContainerProps {
   kbId: string;
+  canStartNewChat?: boolean;
 }
 
 export default function StickyManagementContainer({
-  kbId
+  kbId,
+  canStartNewChat = false,
 }: StickyManagementContainerProps) {
   const [showCreateFileModal, setShowCreateFileModal] = useState(false);
   const { isUploading, handleFileUpload } = useUploadActions(kbId);
@@ -33,6 +35,7 @@ export default function StickyManagementContainer({
           newChatHandler={() => redirectToNewChat()}
           handleFileUpload={handleFileUpload}
           isUploading={isUploading}
+          canStartNewChat={canStartNewChat}
           openCreateFileModal={() => setShowCreateFileModal(true)}
         />
       </div>

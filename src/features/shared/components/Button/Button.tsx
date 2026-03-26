@@ -7,7 +7,7 @@ const buttonStyles = cva(
     {
         variants: {
             variant: {
-                default: "bg-midnight-950 disabled:bg-midnight-900/70 text-light-50 shadow-midnight-900",
+                default: "bg-midnight-950 disabled:bg-midnight-950/70 text-light-50 shadow-midnight-900",
                 primary: "bg-primary text-primary shadow-sm shadow-light-400 dark:shadow-midnight-600",
                 secondary: "bg-secondary text-secondary shadow-sm shadow-light-400 dark:shadow-midnight-600",
                 tertiary: "bg-quaternary text-quaternary shadow-sm shadow-light-400 dark:shadow-midnight-300",

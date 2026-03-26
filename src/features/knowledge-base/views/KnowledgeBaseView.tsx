@@ -9,6 +9,7 @@ import DefaultNavbar from '@/features/navbar/components/DefaultNavbar';
 import StickyManagementContainer from '@/features/sticky-management/containers/StickyManagementContainer';
 import ChatsEmpty from '@/features/chat/components/ChatsEmpty';
 import Badge from '@/features/shared/components/Badge/Badge';
+import { hasAnyFileProcessed } from '@/features/files/utils/files';
 
 interface KnowledgeBaseViewProps {
     kb: KnowledgeBase;
@@ -18,7 +19,7 @@ export default function KnowledgeBaseView({
     kb,
 }: KnowledgeBaseViewProps) {
     const { t } = useI18n();
-    const { redirectToKnowledgeBaseIndex } = useRedirect();
+    const { redirectToKnowledgeBaseIndex, redirectToNewChat } = useRedirect();
 
     return (
         <div className="w-full font-mixed">
@@ -82,14 +83,14 @@ export default function KnowledgeBaseView({
                             </div>
 
                             {kb?.chats && kb.chats.length === 0 && (
-                                <ChatsEmpty />
+                                <ChatsEmpty canStartNewChat={kb?.files && hasAnyFileProcessed(kb.files)} newChatHandler={() => redirectToNewChat()} />
                             )}
                         </TabPanel>
                     </TabPanels>
                 </TabGroup>
 
             </div>
-            <StickyManagementContainer kbId={kb.id} />
+            <StickyManagementContainer kbId={kb.id} canStartNewChat={kb?.files && hasAnyFileProcessed(kb.files)} />
         </div>
     )
 }
