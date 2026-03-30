@@ -7,10 +7,13 @@ import useRedirect from '@/features/shared/hooks/useRedirect';
 
 interface ChatViewProps {
   chat?: Chat;
+  isSubmitting: boolean;
+  messages: ChatMessage[];
   onSendMessage: (message: string) => void;
+  onCancelMessage: () => void;
 }
 
-export default function ChatView({ chat, onSendMessage }: ChatViewProps) {
+export default function ChatView({ chat, messages, isSubmitting, onSendMessage, onCancelMessage }: ChatViewProps) {
   const { t } = useI18n();
   const { redirectToKnowledgeBase } = useRedirect();
   return (
@@ -33,16 +36,16 @@ export default function ChatView({ chat, onSendMessage }: ChatViewProps) {
         {chat ? (
           <>
             <div className="flex-1 overflow-hidden">
-              <MessageList messages={chat.messages} />
+              <MessageList messages={messages} />
             </div>
             <div className="shrink-0">
-              <MessageInput onSendMessage={onSendMessage} />
+              <MessageInput isSubmitting={isSubmitting} onSendMessage={onSendMessage} onCancelMessage={onCancelMessage} />
             </div>
           </>
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <div className="w-full max-w-2xl px-2 md:px-4">
-              <MessageInput onSendMessage={onSendMessage} />
+              <MessageInput isSubmitting={isSubmitting} onSendMessage={onSendMessage} onCancelMessage={onCancelMessage} />
             </div>
           </div>
         )}

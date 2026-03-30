@@ -13,6 +13,10 @@ const useRedirect = () => {
         router.push(url, as, options);
     };
 
+    const replaceTo = (url: Url, as?: Url, options?: Parameters<typeof router.replace>[2]) => {
+        router.replace(url, as, options);
+    }
+
     const redirectToAuthenticate = (withCheck?: boolean) => {
         if (withCheck) {
             if (!access_token) {
@@ -97,6 +101,18 @@ const useRedirect = () => {
         }
     }
 
+    const replaceToChat = (chatId: string, withCheck = true) => {
+        if(!withCheck) {
+            replaceTo(`/c/${chatId}`);
+            return;
+        }
+        if (access_token) {
+            replaceTo(`/c/${chatId}`);
+        } else {
+            redirectTo("/authenticate");
+        }
+    }
+
     return {
         query,
         isReady,
@@ -110,6 +126,7 @@ const useRedirect = () => {
         redirectToKnowledgeBaseIndex,
         redirectToNewChat,
         redirectToChat,
+        replaceToChat,
     }; 
 
 }

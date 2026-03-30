@@ -4,14 +4,16 @@ import useChatAlertToast from './useChatAlertToast';
 import { useQueryClient } from '@tanstack/react-query';
 import { useI18n } from '@/features/localization/hooks/useI18n';
 import { isAxiosError } from 'axios';
-import useRedirect from '@/features/shared/hooks/useRedirect';
 import useCommonErrorAlertToast from '@/features/shared/hooks/useCommonErrorAlertToast';
+import { DraftPendingMessageStore } from '../store/DraftPendingMessageStore';
+import useRedirect from '@/features/shared/hooks/useRedirect';
 
 
-export const useChatActions = (kbId: string, chatId: string = '') => {
+export const useChatActions = (kbId: string) => {
   const queryClient = useQueryClient();
-  const { t, language } = useI18n();
-  const { redirectToChat } = useRedirect();
+  const { language } = useI18n();
+  const { setPendingState} = DraftPendingMessageStore();
+  const { replaceToChat } = useRedirect();
   const { somethingWentWrongAlert } = useCommonErrorAlertToast();
   const {
     showUpdateChatSuccessToast,
@@ -19,86 +21,27 @@ export const useChatActions = (kbId: string, chatId: string = '') => {
     showErrorToast,
   } = useChatAlertToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
-  const [chat, setChat] = useState<Chat>();
 
-  const sendMessage = async (content: string) => {
-    if (!content.trim() || !kbId) return;
-const userMessage: ChatMessage = {
-        chat_id: chatId || '',
-        role: 'user',
-        content,
-      };
+  const createChat = async (message: string) => {
     try {
-      const body: SendMessageRequest = {
-        message: content,
-        chat_id: chatId,
-      };
-
-      
-
-      setChatMessages(prev => [
-        ...prev,
-        userMessage
-      ]);
-      const response = await ChatController.send(kbId, body);
-      if (!response) return;
-      if (!chatId) {
-        redirectToChat(response.id!);
-        return;
+      setIsSubmitting(true);
+      const response = await ChatController.store(kbId, language);
+      if (response?.session && response.id) {
+        setPendingState(message, response.session);
+        replaceToChat(response.id);
       }
-      queryClient.setQueryData(['chat', kbId, response.id], (old: Chat | undefined) => {
-        if (!old) return response;
-
-        return {
-          ...old,
-          title: response.title,
-          messages: [
-            ...(old.messages ?? []),
-            ...(response.messages ?? [])
-          ]
-        };
-      });
-      setChat(response);
-
-      setChatMessages(prev => {
-        const newMessages = response.messages ?? [];
-
-        return [
-          ...prev,
-          ...newMessages.filter(
-            m => !prev.some(p => p.id === m.id)
-          )
-        ];
-      });
-    } catch {
-      queryClient.setQueryData(['chat', kbId, chatId], (old: Chat | undefined) => {
-        if (!old) return old;
-
-        return {
-          ...old,
-          messages: [
-            ...(old.messages ?? []),
-            userMessage,
-            {
-              chat_id: chatId,
-              role: 'system',
-              content: t('something_went_wrong_try_again')
-            }
-          ]
-        };
-      });
-      setChatMessages(prev => [
-        ...prev,
-        userMessage,
-        {
-          chat_id: chatId || '',
-          role: 'system',
-          content: t('something_went_wrong_try_again')
-        }
-      ]);
+      return response;
+    } catch (err: unknown) {
+      if (isAxiosError(err) && err.response?.status === 422) {
+        showErrorToast(err?.response?.data?.errors[0]);
+        return null;
+      }
+      somethingWentWrongAlert();
+      return null;
+    } finally {
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const updateChat = async (chatId: string, data: UpdateChatRequest) => {
     try {
@@ -117,6 +60,7 @@ const userMessage: ChatMessage = {
     } catch (error: unknown) {
       if (isAxiosError(error) && error.response?.status === 422) {
         showErrorToast(error?.response?.data?.errors[0]);
+        return null;
       }
       somethingWentWrongAlert();
       return null;
@@ -147,10 +91,7 @@ const userMessage: ChatMessage = {
     }
   };
   return {
-    chat,
-    sendMessage,
-    chatMessages,
-    setChatMessages,
+    createChat,
     updateChat,
     deleteChat,
     isSubmitting,

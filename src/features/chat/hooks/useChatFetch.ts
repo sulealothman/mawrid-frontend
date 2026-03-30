@@ -13,8 +13,10 @@ const useChatFetch = (kbId: string, chatId: string, isReady: boolean) => {
     } catch (err: unknown) {
       if(isAxiosError(err)) {
         somethingWentWrongAlert();
+        return;
       }
       somethingWentWrongAlert();
+      
     }
   }
 

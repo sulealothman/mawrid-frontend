@@ -7,6 +7,7 @@ type Chat = {
     knowledge_base_id: string; // UUID
     title: string;
     messages?: ChatMessage[];
+    session?: ChatSession | null;
     created_at?: string;
     updated_at?: string;
 }
@@ -37,7 +38,6 @@ type ChatMessageUsage = {
 
 
 type SendMessageRequest = {
-    message: string;
     chat_id?: string; // UUID
 }
 
@@ -64,3 +64,34 @@ type UpdateChatRequest = {
 }
 
 type UpdateChatResponse = Chat
+
+type ChatSession = {
+    chat_id: string;
+    ws_url: string;
+    token: string;
+    expires_in: number;
+}
+
+type ChatSessionResponse = ChatSession
+
+type SendWsMessageParams = {
+    requestId: string;
+    chatId: string;
+    kbId: string;
+    message: string;
+    messages: Array<{ role: string; content: string }>;
+};
+
+type UseChatSocketParams = {
+    session?: ChatSessionResponse | null;
+    onDelta?: (requestId: string, chunk: string) => void;
+    onDone?: (requestId: string, data: PersistedChatPayload | null) => void;
+    onCancelled?: (requestId: string, data: PersistedChatPayload | null) => void;
+    onError?: (requestId: string | null, data: PersistedChatPayload | null, message?: string) => void;
+};
+
+type PersistedChatPayload = {
+  chat_id: string;
+  user_message: ChatMessage;
+  reply_message: ChatMessage;
+};
