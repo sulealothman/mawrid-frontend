@@ -3,12 +3,12 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/features/shared/utils/utils';
 
 const buttonStyles = cva(
-    "p-2 font-mixed font-semibold cursor-pointer disabled:cursor-default outline-none duration-150",
+    "p-2 font-mixed font-semibold cursor-pointer disabled:cursor-default outline-none duration-300",
     {
         variants: {
             variant: {
                 default: "bg-midnight-950 disabled:bg-midnight-950/70 text-light-50 shadow-midnight-900",
-                primary: "bg-primary text-primary shadow-sm shadow-light-400 dark:shadow-midnight-600",
+                primary: "dark:bg-light-200 disabled:dark:bg-light-200/70 bg-midnight-950 disabled:bg-midnight-950/70 text-light-200 dark:text-midnight-950 shadow-sm shadow-light-400 dark:shadow-midnight-600",
                 secondary: "bg-secondary text-secondary shadow-sm shadow-light-400 dark:shadow-midnight-600",
                 tertiary: "bg-quaternary text-quaternary shadow-sm shadow-light-400 dark:shadow-midnight-300",
                 accent: "bg-accent",

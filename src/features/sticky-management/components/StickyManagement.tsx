@@ -21,7 +21,7 @@ export default function StickyManagement({
     const { t } = useI18n();
     return (
         <div className='w-full flex gap-2'>
-            <Button className='flex-1 rounded-xl max-md:text-sm' onClick={newChatHandler} disabled={!canStartNewChat}>
+            <Button className='flex-1 rounded-xl max-md:text-sm font-bold' onClick={newChatHandler} disabled={!canStartNewChat}>
                 {t('new_chat')}
             </Button>
             <UploadFileInput

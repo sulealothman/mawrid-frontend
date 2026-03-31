@@ -3,7 +3,7 @@
     @apply text-sm font-medium font-mixed text-primary;
   }
   .input-form {
-    @apply border-2 border-tertiary bg-secondary text-secondary rounded-xl py-2 font-noto-sans-arabic outline-none duration-150;
+    @apply border-2 border-tertiary bg-secondary dark:bg-midnight-850 text-secondary rounded-xl py-2 font-noto-sans-arabic outline-none duration-150;
   }
   .input-password-form {
     @apply w-full px-3 py-2;
@@ -17,5 +17,9 @@
 
   .input-textarea-form {
     @apply border-2 border-tertiary bg-secondary text-secondary rounded-xl p-2 font-noto-sans-arabic outline-none duration-150 resize-none;
+  }
+
+  .input-textarea-form-dark {
+    @apply dark:bg-midnight-850;
   }
 }

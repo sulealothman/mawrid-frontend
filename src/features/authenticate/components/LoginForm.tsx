@@ -59,7 +59,7 @@ const LoginForm = ({
             </Link>
 
             <div className='flex flex-col gap-2'>
-                <Button onClick={loginHandler}>
+                <Button onClick={loginHandler} variant='primary'>
                     {t('login')}
                 </Button>
             </div>

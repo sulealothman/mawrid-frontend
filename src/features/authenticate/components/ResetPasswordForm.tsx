@@ -53,7 +53,7 @@ export const ResetPasswordForm = ({
             />
 
             <div className='flex flex-col gap-2 mt-4'>
-                <Button onClick={() => resetPasswordHandler(newPassword, newPasswordConfrimation)}>
+                <Button onClick={() => resetPasswordHandler(newPassword, newPasswordConfrimation)} variant='primary'>
                     {t('confirm')}
                 </Button>
             </div>

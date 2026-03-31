@@ -16,7 +16,7 @@ export default function ChatsEmpty({ canStartNewChat, newChatHandler }: ChatsEmp
                 <span className="text-2xl font-semibold">{t('no_conversations')}</span>
             </div>
 
-            <Button onClick={newChatHandler} disabled={!canStartNewChat}>
+            <Button onClick={newChatHandler} disabled={!canStartNewChat} variant='primary' className='px-10 font-bold'>
                 {t('new_chat')}
             </Button>
         </div>

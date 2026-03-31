@@ -87,7 +87,7 @@ export const SignupForm = ({
         />
 
         <div className='flex flex-col gap-2'>
-          <Button onClick={registerHandler}>
+          <Button variant='primary' onClick={registerHandler}>
             {t('create_account')}
           </Button>
         </div>

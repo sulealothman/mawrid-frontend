@@ -11,7 +11,7 @@ export default function ErrorView({ callbackFunc }: ErrorViewProps) {
         <div className="w-full max-h-screen flex items-center justify-center">
             <div className="text-center">
                 <p className="text-tertiary font-bold text-xl md:text-3xl font-mixed">{t('something_went_wrong_try_again')}</p>
-                <Button onClick={callbackFunc} className="mt-4">
+                <Button onClick={callbackFunc} className="mt-4 px-10" variant='primary'>
                     {t('retry')}
                 </Button>
             </div>

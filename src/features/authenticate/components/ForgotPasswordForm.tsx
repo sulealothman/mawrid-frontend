@@ -45,7 +45,7 @@ export default function ForgotPasswordForm({
             />
 
             <div className='flex flex-col gap-2'>
-                <Button disabled={emailInvalid || isLoading} onClick={() => forgotPasswordHandler(email)} id='reset-password'>
+                <Button disabled={emailInvalid || isLoading} onClick={() => forgotPasswordHandler(email)} id='reset-password' variant='primary'>
                     {t('reset_password')}
                 </Button>
             </div>
